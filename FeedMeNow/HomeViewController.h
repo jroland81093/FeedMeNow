@@ -12,6 +12,8 @@
 
 @interface HomeViewController : UIViewController <CLLocationManagerDelegate>
 
+-(void) updateUserInterface;
+
 @property (strong, nonatomic) IBOutlet UIButton *generateFoodButton;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
 @property (strong, nonatomic) IBOutlet UILabel *entreeLabel;

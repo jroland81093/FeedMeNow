@@ -158,7 +158,7 @@
             self.numCompletedRequests++;
             if (self.numCompletedRequests == [deliverableRestaurants count])
             {
-                [[parent activityIndicator] stopAnimating];
+                [parent updateUserInterface];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [[self deliverableRestaurants] removeObjectIdenticalTo:restaurant];

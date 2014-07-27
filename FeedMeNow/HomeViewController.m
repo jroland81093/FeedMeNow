@@ -57,7 +57,10 @@
     // Dispose of any resources that can be recreated.
 }
 
-
+- (void)updateUserInterface
+{
+    
+}
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
