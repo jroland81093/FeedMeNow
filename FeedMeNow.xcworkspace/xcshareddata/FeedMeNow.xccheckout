@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>109CA30F-BC5F-4D2B-ADEC-B90E0853A63B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>FeedMeNow</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>045BFF95-10F8-4897-B664-691B3A093E2C</key>
+		<string>https://github.com/jroland81093/FeedMeNow.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>FeedMeNow.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>045BFF95-10F8-4897-B664-691B3A093E2C</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/jroland81093/FeedMeNow.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>045BFF95-10F8-4897-B664-691B3A093E2C</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>045BFF95-10F8-4897-B664-691B3A093E2C</string>
+			<key>IDESourceControlWCCName</key>
+			<string>FeedMeNow</string>
+		</dict>
+	</array>
+</dict>
+</plist>
