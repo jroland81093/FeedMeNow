@@ -26,6 +26,7 @@ PODS:
   - FBGlowLabel (0.0.1)
   - FlatUIKit (1.4)
   - MACircleProgressIndicator (1.0.0)
+  - pop (1.0.6)
 
 DEPENDENCIES:
   - AFNetworking (= 2.3.1)
@@ -33,6 +34,7 @@ DEPENDENCIES:
   - FBGlowLabel (from `https://github.com/lyokato/FBGlowLabel.git`)
   - FlatUIKit (= 1.4.0)
   - MACircleProgressIndicator (~> 1.0.0)
+  - pop (~> 1.0)
 
 EXTERNAL SOURCES:
   FBGlowLabel:
@@ -44,5 +46,6 @@ SPEC CHECKSUMS:
   FBGlowLabel: c6b4d3f4d2117071be5f453e25f9bc5a67935b2d
   FlatUIKit: edc1ed0c130687dc64a10e45851cc58925f6893d
   MACircleProgressIndicator: 6d7813b78ebb0abfddb85f0e380976c0d694bc29
+  pop: e518794da38942c05255eb64b36d894e70cb4f00
 
 COCOAPODS: 0.33.1

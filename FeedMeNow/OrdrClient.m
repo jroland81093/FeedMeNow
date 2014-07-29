@@ -11,16 +11,16 @@
 
 #define HTTP_REQUEST_GET @"GET"
 #define MASHAPE_KEY @"X-Mashape-Key"
-#define ACTIVITY_PROGRESS_DEFAULT .5
 
 
 @implementation OrdrClient
 {
     const NSString *ordrKey;
     const NSString *mashapeKey;
-    NSOperationQueue *operationQueue;
-    NSArray *nonEntreesNames;
     HomeViewController *parent;
+    NSOperationQueue *operationQueue;
+   
+    NSArray *nonEntreesNames;
 }
 @synthesize deliverableRestaurants;
 
@@ -34,6 +34,7 @@
         mashapeKey= @"yd0ET5PqwnmshXdvb4WhY7XqgMdyp1sJ1CojsnnkFfDK1IO69U";
         deliverableRestaurants = [[NSMutableArray alloc] init];
         operationQueue = [[NSOperationQueue alloc] init];
+        
         self.numCompletedRequests = 0;
         nonEntreesNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain"];
     }
@@ -69,6 +70,8 @@
         [userAddress setStreetAddress:[address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
         [userAddress setZip:[NSString stringWithFormat:@"%@", [jsonObject valueForKey:@"zip"]]];
         [userAddress setCity:[city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        NSLog(@"Successfully found user address");
+        [[parent MACircleIndicatorView] setValue:.25];
         return userAddress;
     }
 }
@@ -80,6 +83,7 @@
     Address *userAddress = [self addressNearCoordinate:coordinate];
     if (userAddress)
     {
+        
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/dl/ASAP/%@/%@/%@", [userAddress zip], [userAddress city], [userAddress streetAddress]]];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         [request setHTTPMethod:HTTP_REQUEST_GET];
@@ -107,6 +111,8 @@
                     [deliverableRestaurants addObject:deliveryRestaurant];
                 }
             }
+            [[parent MACircleIndicatorView] setValue:.5];
+            NSLog(@"Successfully found nearby restaurants");
             return YES;
         }
     }
@@ -148,6 +154,7 @@
                                     NSString *entreeName = [entree valueForKey:@"name"];
                                     if ([self isValidEntree:entreeName])
                                     {
+                                        //Get the restaurant from this shit.
                                         [[restaurant orderableEntrees] addObject:entreeName];
                                     }
                                 }
@@ -156,9 +163,9 @@
                     }
                 }
             }
-            #define ACTIVITY_PROGRESS_DEFAULT .5
             self.numCompletedRequests++;
-            [[parent MACircleIndicatorView] setValue: (ACTIVITY_PROGRESS_DEFAULT + (self.numCompletedRequests) / [deliverableRestaurants count])];
+            float currentValue = [[parent MACircleIndicatorView] value];
+            [[parent MACircleIndicatorView] setValue: (currentValue + (self.numCompletedRequests) / [deliverableRestaurants count])];
             if (self.numCompletedRequests == [deliverableRestaurants count])
             {
                 [parent updateUserInterface];
@@ -166,6 +173,7 @@
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             [[self deliverableRestaurants] removeObjectIdenticalTo:restaurant];
         }];
+        [[parent MACircleIndicatorView] setValue:.75];
         [operationQueue addOperation:operation];
         /*
         [operationQueue addOperationWithBlock:^{
