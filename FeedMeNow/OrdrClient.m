@@ -11,6 +11,7 @@
 
 #define HTTP_REQUEST_GET @"GET"
 #define MASHAPE_KEY @"X-Mashape-Key"
+#define ACTIVITY_PROGRESS_DEFAULT .5
 
 
 @implementation OrdrClient
@@ -155,7 +156,9 @@
                     }
                 }
             }
+            #define ACTIVITY_PROGRESS_DEFAULT .5
             self.numCompletedRequests++;
+            [[parent MACircleIndicatorView] setValue: (ACTIVITY_PROGRESS_DEFAULT + (self.numCompletedRequests) / [deliverableRestaurants count])];
             if (self.numCompletedRequests == [deliverableRestaurants count])
             {
                 [parent updateUserInterface];

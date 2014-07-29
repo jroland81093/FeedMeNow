@@ -54,9 +54,21 @@
 #define COCOAPODS_VERSION_MINOR_BDBOAuth1Manager 3
 #define COCOAPODS_VERSION_PATCH_BDBOAuth1Manager 0
 
+// FBGlowLabel
+#define COCOAPODS_POD_AVAILABLE_FBGlowLabel
+#define COCOAPODS_VERSION_MAJOR_FBGlowLabel 0
+#define COCOAPODS_VERSION_MINOR_FBGlowLabel 0
+#define COCOAPODS_VERSION_PATCH_FBGlowLabel 1
+
 // FlatUIKit
 #define COCOAPODS_POD_AVAILABLE_FlatUIKit
 #define COCOAPODS_VERSION_MAJOR_FlatUIKit 1
 #define COCOAPODS_VERSION_MINOR_FlatUIKit 4
 #define COCOAPODS_VERSION_PATCH_FlatUIKit 0
+
+// MACircleProgressIndicator
+#define COCOAPODS_POD_AVAILABLE_MACircleProgressIndicator
+#define COCOAPODS_VERSION_MAJOR_MACircleProgressIndicator 1
+#define COCOAPODS_VERSION_MINOR_MACircleProgressIndicator 0
+#define COCOAPODS_VERSION_PATCH_MACircleProgressIndicator 0
 

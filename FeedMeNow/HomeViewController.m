@@ -11,6 +11,8 @@
 #import "OrdrClient.h"
 #import "Restaurant.h"
 
+#define ACTIVITY_PROGRESS_DEFAULT .5
+
 
 @interface HomeViewController ()
 {
@@ -44,7 +46,7 @@
     [super viewDidLoad];
     //NSUserDefaults Load.
     //If not, then update location.
-    [[self activityIndicator] startAnimating];
+    [self generateUserInterface];
     [locationManager startUpdatingLocation];
     
     
@@ -57,6 +59,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - User Interface
+
+- (void)generateUserInterface
+{
+    [[self MACircleIndicatorView] value];
+    [[self generateFoodButton] setButtonColor:[UIColor turquoiseColor]];
+}
 - (void)updateUserInterface
 {
     
@@ -72,8 +81,8 @@
         userLocation = [location coordinate];
         if ([[self ordrClient] findRestaurantsNearCoordinate:userLocation])
         {
+            [[self MACircleIndicatorView] setValue:ACTIVITY_PROGRESS_DEFAULT];
             [[self ordrClient] generateAllEntrees];
-            [[self activityIndicator] stopAnimating];
         }
         else
         {

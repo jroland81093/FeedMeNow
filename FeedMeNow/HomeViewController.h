@@ -9,13 +9,18 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
+#import <FlatUIKit.h>
+#import <FBGlowLabel.h>
+#import <HZActivityIndicatorView.h>
+#import <MACircleProgressIndicator.h>
 
 @interface HomeViewController : UIViewController <CLLocationManagerDelegate>
 
 -(void) updateUserInterface;
 
-@property (strong, nonatomic) IBOutlet UIButton *generateFoodButton;
-@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
-@property (strong, nonatomic) IBOutlet UILabel *entreeLabel;
-@property (strong, nonatomic) IBOutlet UILabel *restaurantLabel;
+@property (strong, nonatomic) IBOutlet FUIButton *generateFoodButton;
+@property (strong, nonatomic) IBOutlet MACircleProgressIndicator *MACircleIndicatorView;
+@property (strong, nonatomic) IBOutlet FBGlowLabel *entreeLabel;
+@property (strong, nonatomic) IBOutlet FBGlowLabel *restaurantLabel;
+
 @end

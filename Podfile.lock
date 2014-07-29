@@ -23,16 +23,26 @@ PODS:
   - BDBOAuth1Manager (1.3.0):
     - AFNetworking/NSURLConnection (~> 2.3.0)
     - AFNetworking/NSURLSession (~> 2.3.0)
+  - FBGlowLabel (0.0.1)
   - FlatUIKit (1.4)
+  - MACircleProgressIndicator (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking (= 2.3.1)
   - BDBOAuth1Manager (= 1.3.0)
+  - FBGlowLabel (from `https://github.com/lyokato/FBGlowLabel.git`)
   - FlatUIKit (= 1.4.0)
+  - MACircleProgressIndicator (~> 1.0.0)
+
+EXTERNAL SOURCES:
+  FBGlowLabel:
+    :git: https://github.com/lyokato/FBGlowLabel.git
 
 SPEC CHECKSUMS:
   AFNetworking: 6d7b76aa5d04c8c37daad3eef4b7e3f2a7620da3
   BDBOAuth1Manager: b877a5d3b94071f8b3a55ff3738d8a73c23d460e
+  FBGlowLabel: c6b4d3f4d2117071be5f453e25f9bc5a67935b2d
   FlatUIKit: edc1ed0c130687dc64a10e45851cc58925f6893d
+  MACircleProgressIndicator: 6d7813b78ebb0abfddb85f0e380976c0d694bc29
 
 COCOAPODS: 0.33.1

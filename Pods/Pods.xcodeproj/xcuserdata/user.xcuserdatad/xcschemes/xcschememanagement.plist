@@ -14,7 +14,17 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Pods-FeedMeNow-FBGlowLabel.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-FeedMeNow-FlatUIKit.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>Pods-FeedMeNow-MACircleProgressIndicator.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -26,6 +36,37 @@
 		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
-	<dict/>
+	<dict>
+		<key>0FAF8838F65C4E198549E798</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>383850F2D798451E875EEACE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>A3FF5955BA5C4D44A1B00749</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>D58998ACF98E43B2BA47455F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E46753EC2FFA4B16B16051AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>F7F66FFEBFFA4E3F960A6D7C</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+	</dict>
 </dict>
 </plist>
