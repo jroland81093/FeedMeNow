@@ -6,12 +6,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeViewController">
             <connections>
-                <outlet property="MACircleIndicatorView" destination="8os-1L-Gai" id="b4q-Pf-O8e"/>
                 <outlet property="entreeLabel" destination="NDt-nl-9Ib" id="5Gs-TH-hRb"/>
                 <outlet property="feedMeNowButton" destination="q5f-Ix-NxB" id="Ql7-wv-dPx"/>
                 <outlet property="fromLabel" destination="vDP-4j-fjx" id="1NL-jA-MJc"/>
                 <outlet property="generateFoodButton" destination="OfX-5d-SfX" id="sDr-zY-ajz"/>
-                <outlet property="loadingLabel" destination="WFu-hT-WKr" id="bG2-x0-sYo"/>
                 <outlet property="restaurantLabel" destination="vDP-4j-fjx" id="8Kv-5G-SUp"/>
                 <outlet property="suggestionLabel" destination="oTJ-v0-Act" id="nsX-OQ-32h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -52,18 +50,6 @@
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Loading..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WFu-hT-WKr">
-                    <rect key="frame" x="113" y="347" width="94" height="63"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="8os-1L-Gai" customClass="MACircleProgressIndicator">
-                    <rect key="frame" x="45" y="112" width="230" height="230"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                </view>
                 <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uKt-Xx-wao">
                     <rect key="frame" x="130" y="274" width="60" height="20"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

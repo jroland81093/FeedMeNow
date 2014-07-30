@@ -25,6 +25,9 @@
 		CE290891196BB878008310CE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29088F196BB878008310CE /* HomeViewController.m */; };
 		CE290892196BB878008310CE /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE290890196BB878008310CE /* HomeViewController.xib */; };
 		CE290897196BB8F7008310CE /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE290896196BB8F7008310CE /* YelpClient.m */; };
+		CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94D01988AFD900139BCB /* LoadingViewController.m */; };
+		CE9D94D31988AFD900139BCB /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9D94D11988AFD900139BCB /* LoadingViewController.xib */; };
+		CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94DB1988BFB600139BCB /* Suggestion.m */; };
 		CEE8215F197194D400E293E2 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE8215E197194D400E293E2 /* CoreLocation.framework */; };
 		CEE82161197194D900E293E2 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEE82160197194D900E293E2 /* MapKit.framework */; };
 		CEE8216519719D5500E293E2 /* OrdrClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CEE8216419719D5500E293E2 /* OrdrClient.m */; };
@@ -67,6 +70,11 @@
 		CE290890196BB878008310CE /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CE290895196BB8F7008310CE /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
 		CE290896196BB8F7008310CE /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
+		CE9D94CF1988AFD900139BCB /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
+		CE9D94D01988AFD900139BCB /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		CE9D94D11988AFD900139BCB /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
+		CE9D94DA1988BFB600139BCB /* Suggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suggestion.h; sourceTree = "<group>"; };
+		CE9D94DB1988BFB600139BCB /* Suggestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Suggestion.m; sourceTree = "<group>"; };
 		CEE8215E197194D400E293E2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		CEE82160197194D900E293E2 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		CEE8216319719D5500E293E2 /* OrdrClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrdrClient.h; sourceTree = "<group>"; };
@@ -106,10 +114,7 @@
 			children = (
 				CE290865196BB7B3008310CE /* FeedMeNow */,
 				CE290894196BB8BF008310CE /* API */,
-				CE036E861972F221003251B8 /* Address.h */,
-				CE036E871972F221003251B8 /* Address.m */,
-				CE036E8919734DD6003251B8 /* Restaurant.h */,
-				CE036E8A19734DD6003251B8 /* Restaurant.m */,
+				CE9D94DD1988BFB900139BCB /* Auxilary Classes */,
 				CE29087E196BB7B3008310CE /* FeedMeNowTests */,
 				CE29085E196BB7B3008310CE /* Frameworks */,
 				CE29085D196BB7B3008310CE /* Products */,
@@ -147,9 +152,8 @@
 				CE29086F196BB7B3008310CE /* AppDelegate.m */,
 				CE290871196BB7B3008310CE /* Images.xcassets */,
 				CE290866196BB7B3008310CE /* Supporting Files */,
-				CE29088E196BB878008310CE /* HomeViewController.h */,
-				CE29088F196BB878008310CE /* HomeViewController.m */,
-				CE290890196BB878008310CE /* HomeViewController.xib */,
+				CE9D94D41988B01100139BCB /* Loading */,
+				CE9D94D51988B02100139BCB /* Home  */,
 			);
 			path = FeedMeNow;
 			sourceTree = "<group>";
@@ -200,6 +204,39 @@
 				CE290896196BB8F7008310CE /* YelpClient.m */,
 			);
 			name = Yelp;
+			sourceTree = "<group>";
+		};
+		CE9D94D41988B01100139BCB /* Loading */ = {
+			isa = PBXGroup;
+			children = (
+				CE9D94CF1988AFD900139BCB /* LoadingViewController.h */,
+				CE9D94D01988AFD900139BCB /* LoadingViewController.m */,
+				CE9D94D11988AFD900139BCB /* LoadingViewController.xib */,
+			);
+			name = Loading;
+			sourceTree = "<group>";
+		};
+		CE9D94D51988B02100139BCB /* Home  */ = {
+			isa = PBXGroup;
+			children = (
+				CE29088E196BB878008310CE /* HomeViewController.h */,
+				CE29088F196BB878008310CE /* HomeViewController.m */,
+				CE290890196BB878008310CE /* HomeViewController.xib */,
+			);
+			name = "Home ";
+			sourceTree = "<group>";
+		};
+		CE9D94DD1988BFB900139BCB /* Auxilary Classes */ = {
+			isa = PBXGroup;
+			children = (
+				CE036E861972F221003251B8 /* Address.h */,
+				CE036E871972F221003251B8 /* Address.m */,
+				CE036E8919734DD6003251B8 /* Restaurant.h */,
+				CE036E8A19734DD6003251B8 /* Restaurant.m */,
+				CE9D94DA1988BFB600139BCB /* Suggestion.h */,
+				CE9D94DB1988BFB600139BCB /* Suggestion.m */,
+			);
+			name = "Auxilary Classes";
 			sourceTree = "<group>";
 		};
 		CEE8216219719D2C00E293E2 /* Ordr.in */ = {
@@ -291,6 +328,7 @@
 				CE29086A196BB7B3008310CE /* InfoPlist.strings in Resources */,
 				CE290872196BB7B3008310CE /* Images.xcassets in Resources */,
 				CE290892196BB878008310CE /* HomeViewController.xib in Resources */,
+				CE9D94D31988AFD900139BCB /* LoadingViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -346,9 +384,11 @@
 				CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */,
 				CE290897196BB8F7008310CE /* YelpClient.m in Sources */,
 				CE290870196BB7B3008310CE /* AppDelegate.m in Sources */,
+				CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */,
 				CE29086C196BB7B3008310CE /* main.m in Sources */,
 				CE290891196BB878008310CE /* HomeViewController.m in Sources */,
 				CEE8216519719D5500E293E2 /* OrdrClient.m in Sources */,
+				CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

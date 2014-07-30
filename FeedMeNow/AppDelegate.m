@@ -8,15 +8,15 @@
 
 #import "AppDelegate.h"
 #import "HomeViewController.h"
-
+#import "LoadingViewController.h"
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    HomeViewController *hvc = [[HomeViewController alloc] init];
-    [[self window] setRootViewController:hvc];
+    LoadingViewController *lvc = [[LoadingViewController alloc] init];
+    [[self window] setRootViewController:lvc];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     return YES;

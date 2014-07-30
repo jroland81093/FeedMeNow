@@ -9,34 +9,36 @@
 #import "OrdrClient.h"
 #import "Restaurant.h"
 
-#define HTTP_REQUEST_GET @"GET"
-#define MASHAPE_KEY @"X-Mashape-Key"
-
-
 @implementation OrdrClient
 {
+    //Auxilary classes
     const NSString *ordrKey;
     const NSString *mashapeKey;
-    HomeViewController *parent;
+    LoadingViewController *delegate;
     NSOperationQueue *operationQueue;
-   
+    
+    //Containers
+    NSMutableArray *deliverableRestaurantsIDs;
+    NSMutableDictionary *deliverableRestaurants;
     NSArray *nonEntreesNames;
 }
-@synthesize deliverableRestaurants;
 
-- (id)initWithViewController: (HomeViewController *)viewController
+- (id)initWithLoadingViewController: (LoadingViewController *)loadingViewController;
 {
     self = [super init];
     if (self)
     {
-        parent = viewController;
-        ordrKey = @"QwueeaKvypUVCC2j4KqGQJYfzvXU6Zb4wYeR13ZTsV0";
-        mashapeKey= @"yd0ET5PqwnmshXdvb4WhY7XqgMdyp1sJ1CojsnnkFfDK1IO69U";
-        deliverableRestaurants = [[NSMutableArray alloc] init];
+        ordrKey = ORDER_KEY ;
+        mashapeKey= MASHAPE_KEY;
+        delegate = loadingViewController;
         operationQueue = [[NSOperationQueue alloc] init];
         
-        self.numCompletedRequests = 0;
+        deliverableRestaurants = [[NSMutableDictionary alloc] init];
+        deliverableRestaurantsIDs = [[NSMutableArray alloc] init];
         nonEntreesNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain"];
+        
+        self.numCompletedRequests = 0;
+        
     }
     return self;
 }
@@ -50,7 +52,7 @@
     NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://montanaflynn-geocode-location-information.p.mashape.com/reverse?latitude=%f&longitude=%f", coordinate.latitude, coordinate.longitude]];
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
     [request setHTTPMethod:HTTP_REQUEST_GET];
-    [request addValue:[NSString stringWithFormat:@"%@", mashapeKey] forHTTPHeaderField:MASHAPE_KEY];
+    [request addValue:[NSString stringWithFormat:@"%@", mashapeKey] forHTTPHeaderField:MASHAPE_REQUEST_HEADER];
     
     //Set up response and send request
     NSError *error = [[NSError alloc] init];
@@ -63,15 +65,16 @@
     else
     {
         NSJSONSerialization *jsonObject = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:nil];
-        Address *userAddress = [[Address alloc] init];
         
-        NSString *address = [NSString stringWithFormat:@"%@ %@",[jsonObject valueForKey:@"street_number"], [jsonObject valueForKey:@"street_name"]];
-        NSString *city = [NSString stringWithFormat:@"%@", [jsonObject valueForKey:@"city"]];
+        //Set up user address from JSON Response
+        Address *userAddress = [[Address alloc] init];
+        NSString *address = [NSString stringWithFormat:@"%@ %@",[jsonObject valueForKey:K_STREET_NUMBER], [jsonObject valueForKey:K_STREET_NAME]];
+        NSString *city = [NSString stringWithFormat:@"%@", [jsonObject valueForKey:K_CITY_NAME]];
         [userAddress setStreetAddress:[address stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
-        [userAddress setZip:[NSString stringWithFormat:@"%@", [jsonObject valueForKey:@"zip"]]];
+        [userAddress setZip:[NSString stringWithFormat:@"%@", [jsonObject valueForKey:K_ZIPCODE]]];
         [userAddress setCity:[city stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]];
+        
         NSLog(@"Successfully found user address");
-        [[parent MACircleIndicatorView] setValue:.25];
         return userAddress;
     }
 }
@@ -79,15 +82,14 @@
 - (BOOL)findRestaurantsNearCoordinate: (CLLocationCoordinate2D)coordinate
 //Finds all restaurants near an address.
 {
-    //Set up Request
     Address *userAddress = [self addressNearCoordinate:coordinate];
     if (userAddress)
     {
-        
+        //Set up URL Request
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/dl/ASAP/%@/%@/%@", [userAddress zip], [userAddress city], [userAddress streetAddress]]];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
         [request setHTTPMethod:HTTP_REQUEST_GET];
-        [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:@"X-NAAMA-CLIENT-AUTHENTICATION"];
+        [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
         
         //Set up response and send request
         NSError *error = [[NSError alloc] init];
@@ -100,23 +102,28 @@
         else
         {
             NSArray *allRestaurants = [NSJSONSerialization JSONObjectWithData:oResponseData options:NSJSONReadingMutableContainers error:nil];
+            
+            //Set up restaurants from JSON Response
             for (NSDictionary *restaurant in allRestaurants)
             {
-                if ([[restaurant valueForKey:@"is_delivering"] integerValue])
+                if ([[restaurant valueForKey:K_RESTAURANT_IS_DELIVERING] integerValue])
                 {
+                    NSNumber *restaurantIDNumber = [restaurant valueForKey:K_RESTAURANT_ID];
+                    NSString *restaurantID = [NSString stringWithFormat:@"%@", restaurantIDNumber];
+                    
                     Restaurant *deliveryRestaurant = [[Restaurant alloc] init];
-                    [deliveryRestaurant setName:[restaurant valueForKey:@"na"]];
-                    [deliveryRestaurant setPhoneNumber:[restaurant valueForKey:@"cs_phone"]];
-                    [deliveryRestaurant setRestaurantID:[restaurant valueForKey:@"id"]];
-                    [deliverableRestaurants addObject:deliveryRestaurant];
+                    [deliveryRestaurant setRestaurantID:restaurantID];
+                    [deliveryRestaurant setName:[restaurant valueForKey:K_RESTAURANT_NAME]];
+                    [deliveryRestaurant setPhoneNumber:[restaurant valueForKey:K_RESTAURANT_PHONE]];
+                    
+                    [deliverableRestaurantsIDs addObject:restaurantID];
+                    [deliverableRestaurants setValue:deliveryRestaurant forKey:restaurantID];
                 }
             }
-            [[parent MACircleIndicatorView] setValue:.5];
             NSLog(@"Successfully found nearby restaurants");
             return YES;
         }
     }
-
     return NO;
 }
 
@@ -127,21 +134,27 @@
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
     [request setHTTPMethod:HTTP_REQUEST_GET];
-    [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:@"X-NAAMA-CLIENT-AUTHENTICATION"];
+    [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
     
-    for (Restaurant *restaurant in deliverableRestaurants)
+    for (NSString *restaurantID in deliverableRestaurantsIDs)
     {
         //Set up URL for each restaurant
+        Restaurant *restaurant = [deliverableRestaurants objectForKey:restaurantID];
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
         [request setURL:url];
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         
+        //Send out the requests asynchronously and concurrently.
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            // Print the response body in text
-            NSArray *allMenu = [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:@"menu.children"];
-            if (![allMenu isKindOfClass:[NSNull class]])
+            NSDictionary *allData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+            NSArray *entireMenu = [allData valueForKeyPath:K_RESTAURANT_MENU];
+            NSString *idOuter = [NSString stringWithFormat:@"%@",[allData valueForKey:K_RESTAURANT_MENU_ID]];
+            
+            /*
+            if (![entireMenu isKindOfClass:[NSNull class]])
             {
-                for (NSArray *category in allMenu)
+                //Add to deliverable restaurants
+                for (NSArray *category in entireMenu)
                 {
                     if (![category isKindOfClass:[NSNull class]])
                     {
@@ -149,13 +162,18 @@
                         {
                             if (![entree isKindOfClass:[NSNull class]])
                             {
-                                if ([[entree valueForKey:@"is_orderable"] integerValue])
+                                if ([[entree valueForKey:K_RESTAURANT_MENU_IS_ORDERABLE] integerValue])
                                 {
-                                    NSString *entreeName = [entree valueForKey:@"name"];
+                                    NSString *entreeName = [entree valueForKey:K_RESTAURANT_MENU_NAME];
                                     if ([self isValidEntree:entreeName])
                                     {
-                                        //Get the restaurant from this shit.
-                                        [[restaurant orderableEntrees] addObject:entreeName];
+                                        //Ensure multithreading didn't overwrite
+                                        NSString *idInner = [NSString stringWithFormat:@"%@", [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil] valueForKey:@"restaurant_id"]];
+                                        if ([idOuter isEqualToString:idInner])
+                                        {
+                                            Restaurant *addedRestaurant = [deliverableRestaurants valueForKey:idInner];
+                                            [[addedRestaurant orderableEntrees] addObject:entreeName];
+                                        }
                                     }
                                 }
                             }
@@ -163,6 +181,9 @@
                     }
                 }
             }
+             */
+            
+            //Update callback parameters
             self.numCompletedRequests++;
             float currentValue = [[parent MACircleIndicatorView] value];
             [[parent MACircleIndicatorView] setValue: (currentValue + (self.numCompletedRequests) / [deliverableRestaurants count])];
@@ -171,51 +192,15 @@
                 [parent updateUserInterface];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            [[self deliverableRestaurants] removeObjectIdenticalTo:restaurant];
+            NSLog(@"Couldn't find restaurant");
+            [[self deliverableRestaurantsIDs] removeObject:restaurantID];
+            [[self deliverableRestaurants] removeObjectForKey:restaurantID];
+            //Remvove restaurant from deliverable restaurants.
         }];
+        
+        //Update UI
         [[parent MACircleIndicatorView] setValue:.75];
         [operationQueue addOperation:operation];
-        /*
-        [operationQueue addOperationWithBlock:^{
-            NSURL CONNECTION
-            [NSURLConnection sendAsynchronousRequest:request queue:operationQueue completionHandler:^(NSURLResponse *response, NSData *data, NSError *connectionError) {
-                NSLog(@"response");
-                if (connectionError || data.length == 0)
-                {
-                    NSLog(@"Error");
-                }
-                else
-                {
-                    NSArray *allMenu = [[NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:@"menu.children"];
-                    if (![allMenu isKindOfClass:[NSNull class]])
-                    {
-                        for (NSArray *category in allMenu)
-                        {
-                            if (![category isKindOfClass:[NSNull class]])
-                            {
-                                for (NSObject *entree in category)
-                                {
-                                    if (![entree isKindOfClass:[NSNull class]])
-                                    {
-                                        if ([[entree valueForKey:@"is_orderable"] integerValue])
-                                        {
-                                            NSString *entreeName = [entree valueForKey:@"name"];
-                                            if ([self isValidEntree:entreeName])
-                                            {
-                                                [[restaurant orderableEntrees] addObject:entreeName];
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                    self.numCompletedRequests++;
-                    NSLog(@"Request %d", self.numCompletedRequests);
-                }
-            }];
-         
-        }];*/
     }
 }
 
