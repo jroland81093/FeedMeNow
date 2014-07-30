@@ -11,19 +11,16 @@
 #define NAME @"Name"
 #define PHONE @"PhoneNumber"
 #define RESTAURANTID @"RestaurantID"
-#define ENTREES @"OrderableEntrees"
 
 
 @implementation Restaurant
 
-@synthesize name, phoneNumber, restaurantID, orderableEntrees;
-
+@synthesize name, phoneNumber, restaurantID;
 - (id)init
 {
     self = [super init];
     if (self)
     {
-        orderableEntrees = [[NSMutableArray alloc] init];
     }
     return self;
 }
@@ -36,7 +33,6 @@
         name = [aDecoder decodeObjectForKey:NAME];
         phoneNumber = [aDecoder decodeObjectForKey:PHONE];
         restaurantID = [aDecoder decodeObjectForKey:RESTAURANTID];
-        orderableEntrees = [aDecoder decodeObjectForKey:ENTREES];
     }
     return self;
 }
@@ -46,7 +42,6 @@
     [aCoder encodeObject:self.name forKey:NAME];
     [aCoder encodeObject:self.phoneNumber forKey:PHONE];
     [aCoder encodeObject:self.restaurantID forKey:RESTAURANTID];
-    [aCoder encodeObject:self.orderableEntrees forKey:ENTREES];
 }
 
 @end

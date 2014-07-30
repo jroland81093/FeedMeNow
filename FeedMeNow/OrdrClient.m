@@ -8,6 +8,7 @@
 
 #import "OrdrClient.h"
 #import "Restaurant.h"
+#import "Suggestion.h"
 
 @implementation OrdrClient
 {
@@ -38,7 +39,6 @@
         nonEntreesNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain"];
         
         self.numCompletedRequests = 0;
-        
     }
     return self;
 }
@@ -129,7 +129,7 @@
 
 
 #pragma mark - Get entrees of restaurants
-- (void) generateAllEntrees
+- (void) generateAllEntreesToArray: (NSMutableArray *)array;
     //Find and store all deliverables nearby into the singleton instance.
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -149,8 +149,7 @@
             NSDictionary *allData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
             NSArray *entireMenu = [allData valueForKeyPath:K_RESTAURANT_MENU];
             NSString *idOuter = [NSString stringWithFormat:@"%@",[allData valueForKey:K_RESTAURANT_MENU_ID]];
-            
-            /*
+             //Used for multithreading purpose
             if (![entireMenu isKindOfClass:[NSNull class]])
             {
                 //Add to deliverable restaurants
@@ -168,11 +167,18 @@
                                     if ([self isValidEntree:entreeName])
                                     {
                                         //Ensure multithreading didn't overwrite
-                                        NSString *idInner = [NSString stringWithFormat:@"%@", [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil] valueForKey:@"restaurant_id"]];
+                                        NSString *idInner = [NSString stringWithFormat:@"%@", [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil] valueForKey:K_RESTAURANT_MENU_ID]];
                                         if ([idOuter isEqualToString:idInner])
                                         {
+                                            //Add a suggestion to the passed in array.
                                             Restaurant *addedRestaurant = [deliverableRestaurants valueForKey:idInner];
-                                            [[addedRestaurant orderableEntrees] addObject:entreeName];
+                                            Suggestion *suggestion = [[Suggestion alloc] init];
+                                            
+                                            [suggestion setRestaurantName:[addedRestaurant name]];
+                                            [suggestion setEntreeName:entreeName];
+                                            [suggestion setPhoneNumber:[addedRestaurant phoneNumber]];
+                                            [array addObject:suggestion];
+                                            self.numCompletedSuggestions++;
                                         }
                                     }
                                 }
@@ -181,29 +187,21 @@
                     }
                 }
             }
-             */
-            
-            //Update callback parameters
             self.numCompletedRequests++;
-            float currentValue = [[parent MACircleIndicatorView] value];
-            [[parent MACircleIndicatorView] setValue: (currentValue + (self.numCompletedRequests) / [deliverableRestaurants count])];
-            if (self.numCompletedRequests == [deliverableRestaurants count])
+            if (self.numCompletedSuggestions == K_SUGGESTION_LIMIT || [self numCompletedRequests] == [deliverableRestaurants count])
             {
-                [parent updateUserInterface];
+                [operationQueue cancelAllOperations];
+                [delegate generateUserInterface];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
             NSLog(@"Couldn't find restaurant");
-            [[self deliverableRestaurantsIDs] removeObject:restaurantID];
-            [[self deliverableRestaurants] removeObjectForKey:restaurantID];
-            //Remvove restaurant from deliverable restaurants.
         }];
-        
-        //Update UI
-        [[parent MACircleIndicatorView] setValue:.75];
         [operationQueue addOperation:operation];
     }
 }
 
+
+#pragma mark - Helper Functions
 - (NSString *)isValidEntree:(NSString *)entree
 {
     for (NSString *nonEntree in nonEntreesNames)

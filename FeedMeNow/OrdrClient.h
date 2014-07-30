@@ -19,10 +19,10 @@
 //API Functions
 - (Address *)addressNearCoordinate: (CLLocationCoordinate2D)coordinate;
 - (BOOL)findRestaurantsNearCoordinate: (CLLocationCoordinate2D)coordinate;
-- (void)generateAllEntrees;
+- (void) generateAllEntreesToArray: (NSMutableArray *)array;
 
 @property (atomic) NSUInteger numCompletedRequests;
-
+@property (atomic) NSUInteger numCompletedSuggestions;
 
 
 //API Keys and Requests
@@ -46,8 +46,8 @@
 
 #define K_RESTAURANT_MENU @"menu.children"
 #define K_RESTAURANT_MENU_ID @"restaurant_id"
-#define K_RESTAURANT_MENU_IS_ORDERABLE @"is_orderable"
 #define K_RESTAURANT_MENU_NAME @"name"
+#define K_RESTAURANT_MENU_IS_ORDERABLE @"is_orderable"
 
-
+#define K_SUGGESTION_LIMIT ((NSUInteger) 200)
 @end

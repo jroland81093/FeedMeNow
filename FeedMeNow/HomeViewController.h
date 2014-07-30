@@ -7,15 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <CoreLocation/CoreLocation.h>
 #import <FlatUIKit.h>
 #import <FBGlowLabel.h>
 
 #import <Pop/Pop.h>
 
-@interface HomeViewController : UIViewController <CLLocationManagerDelegate>
+@interface HomeViewController : UIViewController
 
--(void) updateUserInterface;
+-(id) initWithSuggestions: (NSMutableArray *)suggestions;
 
 @property (strong, nonatomic) IBOutlet UILabel *suggestionLabel;
 @property (strong, nonatomic) IBOutlet FBGlowLabel *entreeLabel;

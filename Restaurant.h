@@ -12,6 +12,5 @@
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *restaurantID;
-@property (nonatomic, strong) NSMutableArray *orderableEntrees;
 
 @end

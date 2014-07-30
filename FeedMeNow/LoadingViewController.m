@@ -8,6 +8,7 @@
 
 #import "LoadingViewController.h"
 #import "OrdrClient.h"
+#import "HomeViewController.h"
 
 
 @interface LoadingViewController ()
@@ -20,12 +21,14 @@
 @end
 
 @implementation LoadingViewController
+@synthesize  diningSuggestions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         client = [[OrdrClient alloc] initWithLoadingViewController:self];
+        diningSuggestions = [[NSMutableArray alloc] init];
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setDelegate:self];
         userLocation.latitude = 0;
@@ -36,14 +39,16 @@
 
 - (void)viewDidLoad
 {
-    [locationManager startUpdatingLocation];
     [super viewDidLoad];
+    [locationManager startUpdatingLocation];
+    [self generateGlowLabel:[self progressLabel]];
     // Do any additional setup after loading the view from its nib.
 }
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    client = nil;
     // Dispose of any resources that can be recreated.
 }
 
@@ -51,7 +56,9 @@
 
 - (void)generateUserInterface
 {
-    return;
+    NSLog(@"%@", diningSuggestions);
+    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions];
+    [self presentViewController:hvc animated:YES completion:nil];
 }
 
 
@@ -65,7 +72,7 @@
         userLocation = [location coordinate];
         if ([client findRestaurantsNearCoordinate:userLocation])
         {
-            [client generateAllEntrees];
+            [client generateAllEntreesToArray:diningSuggestions];
         }
         else
         {
@@ -88,7 +95,7 @@
     }
 }
 
-#pragma mark - Error Handling Functions
+#pragma mark - Helper Functions
 
 - (void) presentLocationError
 //User didn't allow for location services
@@ -102,6 +109,12 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Could not find user address, try refreshing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     [alertView show];
+}
+
+- (void) generateGlowLabel: (FBGlowLabel *)label
+{
+    [label setGlowColor:[UIColor blackColor]];
+    [label setGlowSize:10];
 }
 
 
