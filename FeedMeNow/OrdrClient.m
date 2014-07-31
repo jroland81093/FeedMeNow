@@ -36,7 +36,7 @@
         
         deliverableRestaurants = [[NSMutableDictionary alloc] init];
         deliverableRestaurantsIDs = [[NSMutableArray alloc] init];
-        nonEntreesNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain"];
+        nonEntreesNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain", @"milk", @"brown rice", @"white rice", @"lemonade"];
         
         self.numCompletedRequests = 0;
     }
@@ -85,6 +85,10 @@
     Address *userAddress = [self addressNearCoordinate:coordinate];
     if (userAddress)
     {
+        //Update user interface
+        [[delegate progressIndicator] setColor: [UIColor belizeHoleColor]];
+        [[delegate progressLabel] setText:@"Finding nearby restaurants..."];
+        
         //Set up URL Request
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/dl/ASAP/%@/%@/%@", [userAddress zip], [userAddress city], [userAddress streetAddress]]];
         NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:url];
@@ -188,13 +192,13 @@
                 }
             }
             self.numCompletedRequests++;
-            if (self.numCompletedSuggestions == K_SUGGESTION_LIMIT || [self numCompletedRequests] == [deliverableRestaurants count])
+            if ([self numCompletedRequests] == [deliverableRestaurants count])
             {
                 [operationQueue cancelAllOperations];
                 [delegate generateUserInterface];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Couldn't find restaurant");
+            NSLog(@"Operation Queue cancelled");
         }];
         [operationQueue addOperation:operation];
     }
@@ -212,6 +216,11 @@
             return nil;
         }
     }
+    NSRange entireRange = NSMakeRange(0, [entree length]);
+    NSMutableString *returnString;
+    NSError *error = NULL;
+
+    //Regular expression to sanitize
     return entree;
 }
 

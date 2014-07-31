@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <AFNetworking.h>
 #import <CoreLocation/CoreLocation.h>
+#import <FlatUIKit.h>
 #import "Address.h"
 #import "LoadingViewController.h"
 

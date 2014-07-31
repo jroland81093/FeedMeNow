@@ -40,6 +40,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [[self progressIndicator] setColor:[UIColor pomegranateColor]];
+    [[self progressLabel] setText:@"Finding your location..."];
     [locationManager startUpdatingLocation];
     [self generateGlowLabel:[self progressLabel]];
     // Do any additional setup after loading the view from its nib.
@@ -56,11 +58,13 @@
 
 - (void)generateUserInterface
 {
-    NSLog(@"%@", diningSuggestions);
     HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions];
     [self presentViewController:hvc animated:YES completion:nil];
 }
 
+- (IBAction)refresh:(id)sender {
+    [locationManager startUpdatingLocation];
+}
 
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
@@ -72,6 +76,8 @@
         userLocation = [location coordinate];
         if ([client findRestaurantsNearCoordinate:userLocation])
         {
+            [[self progressIndicator] setColor:[UIColor emerlandColor]];
+            [[self progressLabel] setText:@"Generating menu information..."];
             [client generateAllEntreesToArray:diningSuggestions];
         }
         else

@@ -7,7 +7,7 @@
 //
 
 #import "HomeViewController.h"
-#import "Restaurant.h"
+#import "Suggestion.h"
 
 @interface HomeViewController ()
 {
@@ -32,9 +32,10 @@
     [super viewDidLoad];
     
     [self generateButton:[self feedMeNowButton] WithColor:[UIColor turquoiseColor] shadowColor:[UIColor greenSeaColor] titleColor:[UIColor cloudsColor]];
-    [self generateButton:[self generateFoodButton] WithColor:[UIColor turquoiseColor] shadowColor:[UIColor greenSeaColor] titleColor:[UIColor cloudsColor]];
+    [self generateButton:[self generateFoodButton] WithColor:[UIColor alizarinColor] shadowColor:[UIColor pomegranateColor] titleColor:[UIColor cloudsColor]];
     [self generateGlowLabel:[self entreeLabel]];
     [self generateGlowLabel:[self restaurantLabel]];
+    [self generateRandomSuggestion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -45,15 +46,24 @@
 
 #pragma mark - UDF
 - (IBAction)feedMeNow:(id)sender {
-    /*
+
     NSString *phoneDigits = [[currentPhoneNumber componentsSeparatedByCharactersInSet:
                             [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
                            componentsJoinedByString:@""];
     NSString *phonePrompt = [NSString stringWithFormat:@"telprompt://%@", phoneDigits];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phonePrompt]];
     NSLog(@"User called %@", currentPhoneNumber);
-     */
+
 }
+
+- (IBAction)generateRandomSuggestion:(id)sender {
+    NSInteger randomIndex = rand() % [allSuggestions count];
+    Suggestion *suggestion = [allSuggestions objectAtIndex:randomIndex];
+    [[self entreeLabel] setText:[suggestion entreeName]];
+    [[self restaurantLabel] setText:[suggestion restaurantName]];
+    currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
+}
+
 
 #pragma mark - Helper Functions
 - (void) generateButton: (FUIButton *)button
@@ -67,6 +77,7 @@
     [button setCornerRadius:6.0f];
     [[button titleLabel] setFont:[UIFont boldFlatFontOfSize:16]];
     [button setTitleColor:titleColor forState:UIControlStateNormal];
+    [button setEnabled:YES];
 }
 
 - (void) generateGlowLabel: (FBGlowLabel *)label

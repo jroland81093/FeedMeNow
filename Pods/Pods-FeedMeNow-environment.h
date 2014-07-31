@@ -66,11 +66,11 @@
 #define COCOAPODS_VERSION_MINOR_FlatUIKit 4
 #define COCOAPODS_VERSION_PATCH_FlatUIKit 0
 
-// MACircleProgressIndicator
-#define COCOAPODS_POD_AVAILABLE_MACircleProgressIndicator
-#define COCOAPODS_VERSION_MAJOR_MACircleProgressIndicator 1
-#define COCOAPODS_VERSION_MINOR_MACircleProgressIndicator 0
-#define COCOAPODS_VERSION_PATCH_MACircleProgressIndicator 0
+// RZSquaresLoading
+#define COCOAPODS_POD_AVAILABLE_RZSquaresLoading
+#define COCOAPODS_VERSION_MAJOR_RZSquaresLoading 1
+#define COCOAPODS_VERSION_MINOR_RZSquaresLoading 1
+#define COCOAPODS_VERSION_PATCH_RZSquaresLoading 0
 
 // pop
 #define COCOAPODS_POD_AVAILABLE_pop

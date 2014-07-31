@@ -5,9 +5,9 @@ target "FeedMeNow" do
 pod 'AFNetworking', '2.3.1'
 pod 'FlatUIKit', '1.4.0'
 pod 'FBGlowLabel', :git => 'https://github.com/lyokato/FBGlowLabel.git'
-pod 'MACircleProgressIndicator', '~> 1.0.0'
 pod 'BDBOAuth1Manager', '1.3.0'
 pod 'pop', '~> 1.0'
+pod 'RZSquaresLoading'
 end
 
 target "FeedMeNowTests" do
