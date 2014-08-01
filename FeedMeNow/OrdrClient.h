@@ -50,5 +50,5 @@
 #define K_RESTAURANT_MENU_NAME @"name"
 #define K_RESTAURANT_MENU_IS_ORDERABLE @"is_orderable"
 
-#define K_SUGGESTION_LIMIT ((NSUInteger) 200)
+#define K_SUGGESTION_LIMIT ((NSUInteger) 400)
 @end

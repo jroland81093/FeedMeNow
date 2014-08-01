@@ -192,7 +192,7 @@
                 }
             }
             self.numCompletedRequests++;
-            if ([self numCompletedRequests] == [deliverableRestaurants count])
+            if ([self numCompletedRequests] == K_SUGGESTION_LIMIT ||[self numCompletedRequests] == [deliverableRestaurants count])
             {
                 [operationQueue cancelAllOperations];
                 [delegate generateUserInterface];

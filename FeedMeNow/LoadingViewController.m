@@ -51,6 +51,7 @@
 {
     [super didReceiveMemoryWarning];
     client = nil;
+    NSLog(@"Memory warning");
     // Dispose of any resources that can be recreated.
 }
 
