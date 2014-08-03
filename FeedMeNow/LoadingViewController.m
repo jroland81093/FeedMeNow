@@ -59,7 +59,7 @@
 
 - (void)generateUserInterface
 {
-    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions withLoadingViewController:self];
     [self presentViewController:hvc animated:YES completion:nil];
 }
 

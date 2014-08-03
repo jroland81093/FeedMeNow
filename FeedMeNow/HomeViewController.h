@@ -10,10 +10,11 @@
 #import <FlatUIKit.h>
 #import <FBGlowLabel.h>
 #import <Pop/Pop.h>
+#import "LoadingViewController.h"
 
 @interface HomeViewController : UIViewController
 
--(id) initWithSuggestions: (NSMutableArray *)suggestions;
+- (id) initWithSuggestions:(NSMutableArray *)suggestions withLoadingViewController: (LoadingViewController *)parent;
 
 @property (strong, nonatomic) IBOutlet UILabel *suggestionLabel;
 @property (strong, nonatomic) IBOutlet FBGlowLabel *entreeLabel;

@@ -12,21 +12,31 @@
 @interface HomeViewController ()
 {
     NSMutableString *currentPhoneNumber;
-    NSMutableArray *allSuggestions;
+    NSMutableDictionary *allSuggestions;
+    NSMutableArray *allRestaurantNames;
 }
 
 @end
 
 @implementation HomeViewController
 
-- (id) initWithSuggestions:(NSMutableArray *)suggestions
+- (id) initWithSuggestions:(NSMutableArray *)suggestions withLoadingViewController: (LoadingViewController *)parent
 {
     self = [super init];
     if (self) {
-        allSuggestions = suggestions;
+        allSuggestions = [[NSMutableDictionary alloc] init];
+        
+        for (Suggestion *suggestion in suggestions)
+        {
+            NSString *restaurantName = [suggestion restaurantName];
+            
+            
+        }
+        parent = nil;
     }
     return self;
 }
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -57,11 +67,17 @@
 }
 
 - (IBAction)generateRandomSuggestion:(id)sender {
-    NSInteger randomIndex = rand() % [allSuggestions count];
+
+    NSUInteger randomRestaurantIndex = rand() % [allRestaurantNames count];
+    NSString *restaurant = [allRestaurantNames objectAtIndex:randomRestaurantIndex];
+    NSLog(@"%@", [allSuggestions valueForKey:restaurant]);
+    /*
     Suggestion *suggestion = [allSuggestions objectAtIndex:randomIndex];
     [[self entreeLabel] setText:[suggestion entreeName]];
     [[self restaurantLabel] setText:[suggestion restaurantName]];
     currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
+     */
+
 }
 
 

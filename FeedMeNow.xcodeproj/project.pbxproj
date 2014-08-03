@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C42BE466E454C2685258EE8 /* libPods-FeedMeNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F80C6B20738C437A94502362 /* libPods-FeedMeNow.a */; };
+		4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0761198E9F59005E04FB /* ParsingOperation.m */; };
 		CE036E881972F221003251B8 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E871972F221003251B8 /* Address.m */; };
 		CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E8A19734DD6003251B8 /* Restaurant.m */; };
 		CE290860196BB7B3008310CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29085F196BB7B3008310CE /* Foundation.framework */; };
@@ -45,6 +46,8 @@
 
 /* Begin PBXFileReference section */
 		25B7F0EF6E714DA0B53550BE /* Pods-FeedMeNow.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMeNow.xcconfig"; path = "Pods/Pods-FeedMeNow.xcconfig"; sourceTree = "<group>"; };
+		4CAD0760198E9F59005E04FB /* ParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingOperation.h; sourceTree = "<group>"; };
+		4CAD0761198E9F59005E04FB /* ParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingOperation.m; sourceTree = "<group>"; };
 		CE036E861972F221003251B8 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = FeedMeNow/Address.h; sourceTree = "<group>"; };
 		CE036E871972F221003251B8 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Address.m; path = FeedMeNow/Address.m; sourceTree = "<group>"; };
 		CE036E8919734DD6003251B8 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
@@ -229,6 +232,8 @@
 		CE9D94DD1988BFB900139BCB /* Auxilary Classes */ = {
 			isa = PBXGroup;
 			children = (
+				4CAD0760198E9F59005E04FB /* ParsingOperation.h */,
+				4CAD0761198E9F59005E04FB /* ParsingOperation.m */,
 				CE036E861972F221003251B8 /* Address.h */,
 				CE036E871972F221003251B8 /* Address.m */,
 				CE036E8919734DD6003251B8 /* Restaurant.h */,
@@ -384,6 +389,7 @@
 				CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */,
 				CE290897196BB8F7008310CE /* YelpClient.m in Sources */,
 				CE290870196BB7B3008310CE /* AppDelegate.m in Sources */,
+				4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */,
 				CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */,
 				CE29086C196BB7B3008310CE /* main.m in Sources */,
 				CE290891196BB878008310CE /* HomeViewController.m in Sources */,

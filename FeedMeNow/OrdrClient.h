@@ -22,9 +22,7 @@
 - (BOOL)findRestaurantsNearCoordinate: (CLLocationCoordinate2D)coordinate;
 - (void) generateAllEntreesToArray: (NSMutableArray *)array;
 
-@property (atomic) NSUInteger numCompletedRequests;
-@property (atomic) NSUInteger numCompletedSuggestions;
-
+@property (atomic) NSUInteger numCompletedResponses;
 
 //API Keys and Requests
 #define ORDER_KEY @"QwueeaKvypUVCC2j4KqGQJYfzvXU6Zb4wYeR13ZTsV0"
@@ -50,5 +48,4 @@
 #define K_RESTAURANT_MENU_NAME @"name"
 #define K_RESTAURANT_MENU_IS_ORDERABLE @"is_orderable"
 
-#define K_SUGGESTION_LIMIT ((NSUInteger) 400)
 @end
