@@ -143,6 +143,11 @@
     [request setHTTPMethod:HTTP_REQUEST_GET];
     [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
     
+    if ([deliverableRestaurantsIDs count] == 0)
+    {
+        [self presentLocationError];
+    }
+    
     for (NSString *restaurantID in deliverableRestaurantsIDs)
     {
         //Setup URL
@@ -158,6 +163,7 @@
             
             //Log and present UI when necessary.
             self.numCompletedResponses++;
+            NSLog(@"%d/%d", self.numCompletedResponses, [deliverableRestaurantsIDs count]);
             if (self.numCompletedResponses == [deliverableRestaurantsIDs count])
             {
                 [delegate generateUserInterface];
@@ -170,4 +176,12 @@
     }
 }
 
+#pragma mark - Helper functions
+- (void) presentLocationError
+//User didn't allow for location services
+{
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Couldn't find any open restaurants" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    [alertView show];
+    [[delegate progressLabel] setText:@"No open restaurants"];
+}
 @end

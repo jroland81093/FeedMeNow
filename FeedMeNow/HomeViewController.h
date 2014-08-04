@@ -16,11 +16,13 @@
 
 - (id) initWithSuggestions:(NSMutableArray *)suggestions;
 
+//Static text
 @property (strong, nonatomic) IBOutlet UILabel *suggestionLabel;
-@property (strong, nonatomic) IBOutlet FBGlowLabel *entreeLabel;
-@property (strong, nonatomic) IBOutlet FBGlowLabel *restaurantLabel;
-@property (strong, nonatomic) IBOutlet FUIButton *feedMeNowButton;
-@property (strong, nonatomic) IBOutlet FUIButton *generateFoodButton;
+@property (weak, nonatomic) IBOutlet UILabel *atLabel;
+
+@property (weak, nonatomic) IBOutlet UILabel *entreeLabel;
+@property (weak, nonatomic) IBOutlet UILabel *restaurantLabel;
+
 
 
 @end

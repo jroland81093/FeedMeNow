@@ -39,8 +39,7 @@
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    //[self performSelector:@selector(presentNextViewController) withObject:nil afterDelay:1.5];
-    [self performSelector:@selector(presentNextViewController) withObject:nil afterDelay:.1];
+    [self performSelector:@selector(presentNextViewController) withObject:nil afterDelay:1.5];
 }
 
 - (void)didReceiveMemoryWarning
@@ -51,12 +50,8 @@
 
 - (void)presentNextViewController
 {
-    /*
+    
     LoadingViewController *lvc = [[LoadingViewController alloc] init];
     [self presentViewController:lvc animated:YES completion:nil];
-     */
-    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:nil];
-    [self presentViewController:hvc animated:YES completion:nil];
-    
 }
 @end

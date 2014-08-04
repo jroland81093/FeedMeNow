@@ -18,7 +18,7 @@
 //Used as a callback function after API responses.
 
 @property (strong, nonatomic) IBOutlet RZSquaresLoading *progressIndicator;
-@property (strong, nonatomic) IBOutlet FBGlowLabel *progressLabel;
+@property (weak, nonatomic) IBOutlet UILabel *progressLabel;
 @property (strong, nonatomic) NSMutableArray *diningSuggestions;
 
 

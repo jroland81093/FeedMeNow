@@ -10,6 +10,7 @@
 #import "OrdrClient.h"
 #import "HomeViewController.h"
 
+#define LABEL_FONT_SIZE (int) 26
 
 @interface LoadingViewController ()
 {
@@ -40,8 +41,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIFont *labelFont = [UIFont fontWithName:@"Bellota-Bold" size:LABEL_FONT_SIZE];
+    
     [[self progressIndicator] setColor:[UIColor pomegranateColor]];
     [[self progressLabel] setText:@"Finding your location..."];
+    [[self progressLabel] setFont:labelFont];
     [locationManager startUpdatingLocation];
     // Do any additional setup after loading the view from its nib.
 }

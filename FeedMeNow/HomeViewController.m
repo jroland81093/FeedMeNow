@@ -19,6 +19,9 @@
 #define C_GREEN_COMPONENT (float) 131/255
 #define C_BLUE_COMPONENT (int) 94/255
 
+#define LABEL_FONT_SIZE (int) 26
+#define SUGGESTION_FONT_SIZE (int) 20
+
 @interface HomeViewController ()
 {
     NSMutableString *currentPhoneNumber;
@@ -40,7 +43,6 @@
     
         allSuggestionsDictionary = [[NSMutableDictionary alloc] init];
         allSuggestions = suggestions;
-        [self generateUserInterface];
     }
     return self;
 }
@@ -48,11 +50,33 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self generateButton:[self feedMeNowButton] WithColor:[UIColor turquoiseColor] shadowColor:[UIColor greenSeaColor] titleColor:[UIColor cloudsColor]];
-    [self generateButton:[self generateFoodButton] WithColor:[UIColor alizarinColor] shadowColor:[UIColor pomegranateColor] titleColor:[UIColor cloudsColor]];
-    [self generateGlowLabel:[self entreeLabel]];
-    [self generateGlowLabel:[self restaurantLabel]];
-    //[self generateRandomSuggestion:nil];
+    //Set top primary background color
+    UIColor *mustardColor = [[UIColor alloc] initWithRed:Y_RED_COMPONENT green:Y_GREEN_COMPONENT blue:Y_BLUE_COMPONENT alpha:1];
+    [[self view] setBackgroundColor:mustardColor];
+    
+    //Set top logo color
+    UIColor *coralColor = [[UIColor alloc] initWithRed:C_RED_COMPONENT green:C_GREEN_COMPONENT blue:C_BLUE_COMPONENT alpha:1];
+    [logoBackground setBackgroundColor:coralColor];
+    
+    //Set fixed buttons
+    UIFont *labelFont = [UIFont fontWithName:@"Bellota-Italic" size:LABEL_FONT_SIZE];
+    [[self suggestionLabel] setFont:labelFont];
+    [[self atLabel] setFont:labelFont];
+    
+    //Set dynamic buttons
+    UIFont *dynamicFont = [UIFont fontWithName:@"Cabin-Bold" size:LABEL_FONT_SIZE];
+    [[self entreeLabel] setFont:dynamicFont];
+    [[self restaurantLabel] setFont:dynamicFont];
+    
+    for (NSString* family in [UIFont familyNames])
+    {
+        NSLog(@"%@", family);
+        
+        for (NSString* name in [UIFont fontNamesForFamilyName: family])
+        {
+            NSLog(@"  %@", name);
+        }
+    }
 }
 
 - (void)didReceiveMemoryWarning
@@ -82,34 +106,4 @@
     currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
 }
 
-
-#pragma mark - Helper Functions
-- (void) generateButton: (FUIButton *)button
-              WithColor: (UIColor *)color
-            shadowColor: (UIColor *)shadowColor
-             titleColor: (UIColor *)titleColor
-{
-    [button setButtonColor:color];
-    [button setShadowColor:shadowColor];
-    [button setShadowHeight:3.0f];
-    [button setCornerRadius:6.0f];
-    [[button titleLabel] setFont:[UIFont boldFlatFontOfSize:16]];
-    [button setTitleColor:titleColor forState:UIControlStateNormal];
-    [button setEnabled:YES];
-}
-
-- (void) generateGlowLabel: (FBGlowLabel *)label
-{
-    [label setGlowColor:[UIColor blackColor]];
-    [label setGlowSize:10];
-}
-
-- (void) generateUserInterface
-{
-    UIColor *mustardColor = [[UIColor alloc] initWithRed:Y_RED_COMPONENT green:Y_GREEN_COMPONENT blue:Y_BLUE_COMPONENT alpha:1];
-    [[self view] setBackgroundColor:mustardColor];
-    
-    UIColor *coralColor = [[UIColor alloc] initWithRed:C_RED_COMPONENT green:C_GREEN_COMPONENT blue:C_BLUE_COMPONENT alpha:1];
-    [logoBackground setBackgroundColor:coralColor];
-}
 @end
