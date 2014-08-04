@@ -12,7 +12,7 @@
 
 #define RED_COMPONENT (float) 238/255
 #define GREEN_COMPONENT (float) 131/255
-#define BLUE_COMPONENT (int) 94/255
+#define BLUE_COMPONENT (float) 94/255
 
 @interface PresentingViewController ()
 
@@ -50,7 +50,6 @@
 
 - (void)presentNextViewController
 {
-    
     LoadingViewController *lvc = [[LoadingViewController alloc] init];
     [self presentViewController:lvc animated:YES completion:nil];
 }

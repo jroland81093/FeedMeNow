@@ -12,15 +12,14 @@
 //Yellow color
 #define Y_RED_COMPONENT (float) 246/255
 #define Y_GREEN_COMPONENT (float) 222/255
-#define Y_BLUE_COMPONENT (int) 177/255
+#define Y_BLUE_COMPONENT (float) 177/255
 
 //Coral color
 #define C_RED_COMPONENT (float) 238/255
 #define C_GREEN_COMPONENT (float) 131/255
-#define C_BLUE_COMPONENT (int) 94/255
+#define C_BLUE_COMPONENT (float) 94/255
 
 #define LABEL_FONT_SIZE (int) 26
-#define SUGGESTION_FONT_SIZE (int) 20
 
 @interface HomeViewController ()
 {
@@ -68,6 +67,9 @@
     [[self entreeLabel] setFont:dynamicFont];
     [[self restaurantLabel] setFont:dynamicFont];
     
+    
+    [self generateRandomSuggestion:nil];
+    /*
     for (NSString* family in [UIFont familyNames])
     {
         NSLog(@"%@", family);
@@ -77,6 +79,7 @@
             NSLog(@"  %@", name);
         }
     }
+     */
 }
 
 - (void)didReceiveMemoryWarning
