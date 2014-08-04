@@ -13,29 +13,31 @@
 @implementation ParsingOperation
 {
     NSArray *entireMenu;
+    NSString *restaurantName;
     NSString *restaurantID;
     
-    NSDictionary *deliverableRestaurants;
-    NSMutableArray *suggestionArray;
+    NSMutableDictionary *deliverableRestaurants;
+    NSMutableArray *deliverableRestaurantSuggestions;
+    
     NSArray *nonEntreeNames;
 }
 
-- (id)initWithData: (NSData *)responseData usingRestaurants:(NSDictionary *)restaurants usingSuggestions: (NSMutableArray *)suggestions withNonEntreeNames: (NSArray *)badEntreeNames
+- (id)initWithData: (NSData *)responseData withRestaurantDictionary:(NSMutableDictionary *)restaurantDictionary withSuggestionArray:(NSMutableArray *)suggestionArray
 {
     self = [super init];
-    if (self) {
-        //Pull information from data
-        NSDictionary *allData = [NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil];
-        restaurantID = [NSString stringWithFormat:@"%@", [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKey:K_RESTAURANT_MENU_ID]];
-        entireMenu = [allData valueForKeyPath:K_RESTAURANT_MENU];
+    if (self)
+    {
+        entireMenu = [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:K_RESTAURANT_MENU];
+        restaurantName = [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:K_RESTAURANT_MENU_NAME];
+        restaurantID = [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:K_RESTAURANT_MENU_ID];
         
-        //Load the arrray with data and bad entree names.
-        deliverableRestaurants = restaurants;
-        suggestionArray = suggestions;
-        nonEntreeNames = badEntreeNames;
+        deliverableRestaurants = restaurantDictionary;
+        deliverableRestaurantSuggestions = suggestionArray;
+        nonEntreeNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain", @"milk", @"brown rice", @"white rice", @"lemonade"];
     }
     return self;
 }
+
 - (void)start
 {
     if (![entireMenu isKindOfClass:[NSNull class]])
@@ -53,15 +55,13 @@
                             NSString *entreeName = [entree valueForKey:K_RESTAURANT_MENU_NAME];
                             if ([self isValidEntree:entreeName])
                             {
-                                //Add a suggestion to the passed in array.
+                                //Add a suggestion to the passed in dictionary
                                 Restaurant *addedRestaurant = [deliverableRestaurants valueForKey:restaurantID];
                                 Suggestion *suggestion = [[Suggestion alloc] init];
                                 [suggestion setRestaurantName:[addedRestaurant name]];
                                 [suggestion setEntreeName:entreeName];
                                 [suggestion setPhoneNumber:[addedRestaurant phoneNumber]];
-                                
-                                //[suggestionArray addObject:suggestion];
-                                //ADD TO DICTIONARY INSTEAD.
+                                [deliverableRestaurantSuggestions addObject:suggestion];
                             }
                         }
                     }

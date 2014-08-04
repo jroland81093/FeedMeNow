@@ -14,7 +14,7 @@
 
 @interface HomeViewController : UIViewController
 
-- (id) initWithSuggestions:(NSMutableArray *)suggestions withLoadingViewController: (LoadingViewController *)parent;
+- (id) initWithSuggestions:(NSMutableArray *)suggestions;
 
 @property (strong, nonatomic) IBOutlet UILabel *suggestionLabel;
 @property (strong, nonatomic) IBOutlet FBGlowLabel *entreeLabel;

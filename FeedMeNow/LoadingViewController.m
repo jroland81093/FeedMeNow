@@ -43,7 +43,6 @@
     [[self progressIndicator] setColor:[UIColor pomegranateColor]];
     [[self progressLabel] setText:@"Finding your location..."];
     [locationManager startUpdatingLocation];
-    [self generateGlowLabel:[self progressLabel]];
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -55,11 +54,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - UDF
+#pragma mark - UI
 
 - (void)generateUserInterface
 {
-    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions withLoadingViewController:self];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions];
     [self presentViewController:hvc animated:YES completion:nil];
 }
 
@@ -116,12 +115,6 @@
 {
     UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Could not find user address, try refreshing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     [alertView show];
-}
-
-- (void) generateGlowLabel: (FBGlowLabel *)label
-{
-    [label setGlowColor:[UIColor blackColor]];
-    [label setGlowSize:10];
 }
 
 

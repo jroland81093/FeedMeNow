@@ -39,7 +39,6 @@
         
         deliverableRestaurants = [[NSMutableDictionary alloc] init];
         deliverableRestaurantsIDs = [[NSMutableArray alloc] init];
-        nonEntreesNames = @[@"water", @"coke", @"sprite", @"soda", @"juice", @"drink", @"fountain", @"milk", @"brown rice", @"white rice", @"lemonade"];
         
         self.numCompletedResponses = 0;
         presentedViewController = NO;
@@ -137,7 +136,7 @@
 
 
 #pragma mark - Get entrees of restaurants
-- (void) generateAllEntreesToDictionary: (NSMutableDictionary *)dictionary;
+- (void) generateAllEntreesToArray: (NSMutableArray *)array
 //Find and store all deliverables nearby into the singleton instance.
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -146,18 +145,18 @@
     
     for (NSString *restaurantID in deliverableRestaurantsIDs)
     {
+        //Setup URL
         Restaurant *restaurant = [deliverableRestaurants objectForKey:restaurantID];
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
         [request setURL:url];
         
-        
         //Send operation and parse upon completion.
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //
-            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject usingRestaurants:deliverableRestaurants usingSuggestionsDictionary:dictionary withNonEntreeNames:nonEntreesNames];
+            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject withRestaurantDictionary:deliverableRestaurants withSuggestionArray:array];
             [operationQueue addOperation:parsingOperation];
             
+            //Log and present UI when necessary.
             self.numCompletedResponses++;
             if (self.numCompletedResponses == [deliverableRestaurantsIDs count])
             {
@@ -170,150 +169,5 @@
         [operationQueue addOperation:operation];
     }
 }
-
-
-- (void) generateAllEntreesToArray: (NSMutableArray *)array;
-    //Find and store all deliverables nearby into the singleton instance.
-{
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setHTTPMethod:HTTP_REQUEST_GET];
-    [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
-
-    for (NSString *restaurantID in deliverableRestaurantsIDs)
-    {
-        Restaurant *restaurant = [deliverableRestaurants objectForKey:restaurantID];
-        NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
-        [request setURL:url];
-        
-        
-        //Send operation and parse upon completion.
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            //
-            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject usingRestaurants:deliverableRestaurants usingSuggestions:array withNonEntreeNames:nonEntreesNames];
-            [operationQueue addOperation:parsingOperation];
-            
-            self.numCompletedResponses++;
-            if (self.numCompletedResponses == [deliverableRestaurantsIDs count])
-            {
-                [delegate generateUserInterface];
-            }
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"FAILURE ON MAIN THREAD");
-            self.numCompletedResponses++;
-        }];
-        [operationQueue addOperation:operation];
-    }
-}
-     /*
-    for (NSString *restaurantID in deliverableRestaurantsIDs)
-    {
-        //Set up URL for each restaurant
-        Restaurant *restaurant = [deliverableRestaurants objectForKey:restaurantID];
-        NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
-        [request setURL:url];
-     
-        
-        AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            NSLog(@"%@", [NSThread currentThread]);
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"%@", [NSThread currentThread]);
-        }];
-        [operationQueue addOperation:operation];
-        //Send out the requests asynchronously and concurrently.
-
-    
-        [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-         
-            NSDictionary *allData = [NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
-            NSArray *entireMenu = [allData valueForKeyPath:K_RESTAURANT_MENU];
-            NSString *idOuter = [NSString stringWithFormat:@"%@",[allData valueForKey:K_RESTAURANT_MENU_ID]];
-             //Used for multithreading purpose
-            if (![entireMenu isKindOfClass:[NSNull class]])
-            {
-                //Add to deliverable restaurants
-                for (NSArray *category in entireMenu)
-                {
-                    if (![category isKindOfClass:[NSNull class]])
-                    {
-                        for (NSObject *entree in category)
-                        {
-                            if (![entree isKindOfClass:[NSNull class]])
-                            {
-                                if ([[entree valueForKey:K_RESTAURANT_MENU_IS_ORDERABLE] integerValue])
-                                {
-                                    NSString *entreeName = [entree valueForKey:K_RESTAURANT_MENU_NAME];
-                                    if ([self isValidEntree:entreeName])
-                                    {
-                                        //Ensure multithreading didn't overwrite
-                                        NSString *idInner = [NSString stringWithFormat:@"%@", [[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil] valueForKey:K_RESTAURANT_MENU_ID]];
-                                        if ([idOuter isEqualToString:idInner])
-                                        {
-                                            //Add a suggestion to the passed in array.
-                                            Restaurant *addedRestaurant = [deliverableRestaurants valueForKey:idInner];
-                                            Suggestion *suggestion = [[Suggestion alloc] init];
-                                            
-                                            [suggestion setRestaurantName:[addedRestaurant name]];
-                                            [suggestion setEntreeName:entreeName];
-                                            [suggestion setPhoneNumber:[addedRestaurant phoneNumber]];
-                                            //Dictionary of arrays
-                                                //Restaurant -> Array of suggestions.
-                                            [array addObject:suggestion];
-                                            self.numCompletedSuggestions++;
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-            
-            self.numCompletedRequests++;
-            NSLog(@"Thread: %@", [NSThread currentThread]);
-            NSLog(@"Main thread: %@", [NSThread mainThread]);
-            if (!presentedViewController)
-            {
-                presentedViewController = YES;
-                [[NSOperationQueue mainQueue] addOperationWithBlock:^ {
-                    [delegate generateUserInterface];
-                }];
-            }
-            if (self.numCompletedRequests == [deliverableRestaurantsIDs count])
-            {
-                [operationQueue cancelAllOperations];
-                NSLog(@"DONE");
-            }
-             
-        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-            NSLog(@"Operation Queue cancelled");
-        }];
-        [operationQueue addOperation:operation];
-      
-    }*/
-
-
-#pragma mark - Helper Functions
-- (NSString *)isValidEntree:(NSString *)entree
-{
-    for (NSString *nonEntree in nonEntreesNames)
-        //Get rid of bad substrings
-    {
-        if ([entree rangeOfString:nonEntree options:NSCaseInsensitiveSearch].location != NSNotFound)
-        {
-            return nil;
-        }
-    }
-    /*
-    NSRange entireRange = NSMakeRange(0, [entree length]);
-    NSMutableString *returnString;
-    NSError *error = NULL;
-     */
-
-    //Regular expression to sanitize
-    return entree;
-}
-
 
 @end

@@ -9,30 +9,38 @@
 #import "HomeViewController.h"
 #import "Suggestion.h"
 
+//Yellow color
+#define Y_RED_COMPONENT (float) 246/255
+#define Y_GREEN_COMPONENT (float) 222/255
+#define Y_BLUE_COMPONENT (int) 177/255
+
+//Coral color
+#define C_RED_COMPONENT (float) 238/255
+#define C_GREEN_COMPONENT (float) 131/255
+#define C_BLUE_COMPONENT (int) 94/255
+
 @interface HomeViewController ()
 {
     NSMutableString *currentPhoneNumber;
-    NSMutableDictionary *allSuggestions;
-    NSMutableArray *allRestaurantNames;
+    NSMutableArray *allSuggestions;
+    NSMutableDictionary *allSuggestionsDictionary;
+    
+    //UI
+    __weak IBOutlet UIView *logoBackground;
 }
 
 @end
 
 @implementation HomeViewController
 
-- (id) initWithSuggestions:(NSMutableArray *)suggestions withLoadingViewController: (LoadingViewController *)parent
+- (id) initWithSuggestions:(NSMutableArray *)suggestions
 {
     self = [super init];
     if (self) {
-        allSuggestions = [[NSMutableDictionary alloc] init];
-        
-        for (Suggestion *suggestion in suggestions)
-        {
-            NSString *restaurantName = [suggestion restaurantName];
-            
-            
-        }
-        parent = nil;
+    
+        allSuggestionsDictionary = [[NSMutableDictionary alloc] init];
+        allSuggestions = suggestions;
+        [self generateUserInterface];
     }
     return self;
 }
@@ -40,12 +48,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
     [self generateButton:[self feedMeNowButton] WithColor:[UIColor turquoiseColor] shadowColor:[UIColor greenSeaColor] titleColor:[UIColor cloudsColor]];
     [self generateButton:[self generateFoodButton] WithColor:[UIColor alizarinColor] shadowColor:[UIColor pomegranateColor] titleColor:[UIColor cloudsColor]];
     [self generateGlowLabel:[self entreeLabel]];
     [self generateGlowLabel:[self restaurantLabel]];
-    [self generateRandomSuggestion:nil];
+    //[self generateRandomSuggestion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -68,16 +75,11 @@
 
 - (IBAction)generateRandomSuggestion:(id)sender {
 
-    NSUInteger randomRestaurantIndex = rand() % [allRestaurantNames count];
-    NSString *restaurant = [allRestaurantNames objectAtIndex:randomRestaurantIndex];
-    NSLog(@"%@", [allSuggestions valueForKey:restaurant]);
-    /*
+    NSUInteger randomIndex = rand() % [allSuggestions count];
     Suggestion *suggestion = [allSuggestions objectAtIndex:randomIndex];
     [[self entreeLabel] setText:[suggestion entreeName]];
     [[self restaurantLabel] setText:[suggestion restaurantName]];
     currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
-     */
-
 }
 
 
@@ -100,5 +102,14 @@
 {
     [label setGlowColor:[UIColor blackColor]];
     [label setGlowSize:10];
+}
+
+- (void) generateUserInterface
+{
+    UIColor *mustardColor = [[UIColor alloc] initWithRed:Y_RED_COMPONENT green:Y_GREEN_COMPONENT blue:Y_BLUE_COMPONENT alpha:1];
+    [[self view] setBackgroundColor:mustardColor];
+    
+    UIColor *coralColor = [[UIColor alloc] initWithRed:C_RED_COMPONENT green:C_GREEN_COMPONENT blue:C_BLUE_COMPONENT alpha:1];
+    [logoBackground setBackgroundColor:coralColor];
 }
 @end

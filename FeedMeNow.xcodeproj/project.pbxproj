@@ -8,6 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		0C42BE466E454C2685258EE8 /* libPods-FeedMeNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F80C6B20738C437A94502362 /* libPods-FeedMeNow.a */; };
+		4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */; };
+		4C4C8F87198F41A6003A11E0 /* Bellota-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */; };
+		4C4C8F88198F41A6003A11E0 /* Bellota-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */; };
+		4C4C8F89198F41A6003A11E0 /* Bellota-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F68198F41A6003A11E0 /* Bellota-Light.otf */; };
+		4C4C8F8A198F41A6003A11E0 /* Bellota-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F69198F41A6003A11E0 /* Bellota-LightItalic.otf */; };
+		4C4C8F8B198F41A6003A11E0 /* Bellota-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6A198F41A6003A11E0 /* Bellota-Regular.otf */; };
+		4C4C8F8C198F41A6003A11E0 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6B198F41A6003A11E0 /* SIL Open Font License.txt */; };
+		4C4C8F8D198F41A6003A11E0 /* button.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6C198F41A6003A11E0 /* button.psd */; };
+		4C4C8F8E198F41A6003A11E0 /* Cabin-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6E198F41A6003A11E0 /* Cabin-Bold.otf */; };
+		4C4C8F8F198F41A6003A11E0 /* Cabin-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6F198F41A6003A11E0 /* Cabin-BoldItalic.otf */; };
+		4C4C8F90198F41A6003A11E0 /* Cabin-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F70198F41A6003A11E0 /* Cabin-Italic.otf */; };
+		4C4C8F91198F41A6003A11E0 /* Cabin-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F71198F41A6003A11E0 /* Cabin-Medium.otf */; };
+		4C4C8F92198F41A6003A11E0 /* Cabin-MediumItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F72198F41A6003A11E0 /* Cabin-MediumItalic.otf */; };
+		4C4C8F93198F41A6003A11E0 /* Cabin-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F73198F41A6003A11E0 /* Cabin-Regular.otf */; };
+		4C4C8F94198F41A6003A11E0 /* Cabin-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F74198F41A6003A11E0 /* Cabin-SemiBold.otf */; };
+		4C4C8F95198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F75198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf */; };
+		4C4C8F96198F41A6003A11E0 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F76198F41A6003A11E0 /* SIL Open Font License.txt */; };
+		4C4C8F97198F41A6003A11E0 /* coral_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F77198F41A6003A11E0 /* coral_logo.png */; };
+		4C4C8F98198F41A6003A11E0 /* feedme_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F78198F41A6003A11E0 /* feedme_button.png */; };
+		4C4C8F99198F41A6003A11E0 /* logo_white.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F79198F41A6003A11E0 /* logo_white.png */; };
+		4C4C8F9A198F41A6003A11E0 /* next_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F7A198F41A6003A11E0 /* next_button.png */; };
+		4C4C8F9B198F41A6003A11E0 /* ribbon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F7B198F41A6003A11E0 /* ribbon.png */; };
+		4C4C8F9C198F41A6003A11E0 /* ribbon.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F7C198F41A6003A11E0 /* ribbon.psd */; };
+		4C4C8F9D198F41A6003A11E0 /* ribbon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F7D198F41A6003A11E0 /* ribbon_2.png */; };
+		4C4C8F9E198F41A6003A11E0 /* feedmenow-copy.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F7E198F41A6003A11E0 /* feedmenow-copy.psd */; };
+		4C4C8F9F198F41A6003A11E0 /* feedmenow-logo.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F7F198F41A6003A11E0 /* feedmenow-logo.psd */; };
+		4C4C8FA0198F41A6003A11E0 /* Feedmenow-main.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F80198F41A6003A11E0 /* Feedmenow-main.psd */; };
+		4C4C8FA1198F41A6003A11E0 /* feedmenow_graphic.gif in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F81198F41A6003A11E0 /* feedmenow_graphic.gif */; };
+		4C4C8FA2198F41A6003A11E0 /* feedmenow_graphic.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F82198F41A6003A11E0 /* feedmenow_graphic.psd */; };
+		4C4C8FA3198F41A6003A11E0 /* feedmenow_mockup.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F83198F41A6003A11E0 /* feedmenow_mockup.jpg */; };
+		4C4C8FA4198F41A6003A11E0 /* feedmenow_mockup.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F84198F41A6003A11E0 /* feedmenow_mockup.psd */; };
+		4C4C8FA5198F41A6003A11E0 /* iphone-calling.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F85198F41A6003A11E0 /* iphone-calling.png */; };
+		4C4C8FA9198F4215003A11E0 /* PresentingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */; };
+		4C4C8FAA198F4215003A11E0 /* PresentingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */; };
 		4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0761198E9F59005E04FB /* ParsingOperation.m */; };
 		CE036E881972F221003251B8 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E871972F221003251B8 /* Address.m */; };
 		CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E8A19734DD6003251B8 /* Restaurant.m */; };
@@ -46,6 +80,41 @@
 
 /* Begin PBXFileReference section */
 		25B7F0EF6E714DA0B53550BE /* Pods-FeedMeNow.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMeNow.xcconfig"; path = "Pods/Pods-FeedMeNow.xcconfig"; sourceTree = "<group>"; };
+		4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Bold.otf"; sourceTree = "<group>"; };
+		4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-BoldItalic.otf"; sourceTree = "<group>"; };
+		4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Italic.otf"; sourceTree = "<group>"; };
+		4C4C8F68198F41A6003A11E0 /* Bellota-Light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Light.otf"; sourceTree = "<group>"; };
+		4C4C8F69198F41A6003A11E0 /* Bellota-LightItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-LightItalic.otf"; sourceTree = "<group>"; };
+		4C4C8F6A198F41A6003A11E0 /* Bellota-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Regular.otf"; sourceTree = "<group>"; };
+		4C4C8F6B198F41A6003A11E0 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		4C4C8F6C198F41A6003A11E0 /* button.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.psd; sourceTree = "<group>"; };
+		4C4C8F6E198F41A6003A11E0 /* Cabin-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Bold.otf"; sourceTree = "<group>"; };
+		4C4C8F6F198F41A6003A11E0 /* Cabin-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-BoldItalic.otf"; sourceTree = "<group>"; };
+		4C4C8F70198F41A6003A11E0 /* Cabin-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Italic.otf"; sourceTree = "<group>"; };
+		4C4C8F71198F41A6003A11E0 /* Cabin-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Medium.otf"; sourceTree = "<group>"; };
+		4C4C8F72198F41A6003A11E0 /* Cabin-MediumItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-MediumItalic.otf"; sourceTree = "<group>"; };
+		4C4C8F73198F41A6003A11E0 /* Cabin-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-Regular.otf"; sourceTree = "<group>"; };
+		4C4C8F74198F41A6003A11E0 /* Cabin-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-SemiBold.otf"; sourceTree = "<group>"; };
+		4C4C8F75198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Cabin-SemiBoldItalic.otf"; sourceTree = "<group>"; };
+		4C4C8F76198F41A6003A11E0 /* SIL Open Font License.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "SIL Open Font License.txt"; sourceTree = "<group>"; };
+		4C4C8F77198F41A6003A11E0 /* coral_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = coral_logo.png; sourceTree = "<group>"; };
+		4C4C8F78198F41A6003A11E0 /* feedme_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = feedme_button.png; sourceTree = "<group>"; };
+		4C4C8F79198F41A6003A11E0 /* logo_white.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo_white.png; sourceTree = "<group>"; };
+		4C4C8F7A198F41A6003A11E0 /* next_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = next_button.png; sourceTree = "<group>"; };
+		4C4C8F7B198F41A6003A11E0 /* ribbon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ribbon.png; sourceTree = "<group>"; };
+		4C4C8F7C198F41A6003A11E0 /* ribbon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = ribbon.psd; sourceTree = "<group>"; };
+		4C4C8F7D198F41A6003A11E0 /* ribbon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ribbon_2.png; sourceTree = "<group>"; };
+		4C4C8F7E198F41A6003A11E0 /* feedmenow-copy.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "feedmenow-copy.psd"; sourceTree = "<group>"; };
+		4C4C8F7F198F41A6003A11E0 /* feedmenow-logo.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "feedmenow-logo.psd"; sourceTree = "<group>"; };
+		4C4C8F80198F41A6003A11E0 /* Feedmenow-main.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Feedmenow-main.psd"; sourceTree = "<group>"; };
+		4C4C8F81198F41A6003A11E0 /* feedmenow_graphic.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = feedmenow_graphic.gif; sourceTree = "<group>"; };
+		4C4C8F82198F41A6003A11E0 /* feedmenow_graphic.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = feedmenow_graphic.psd; sourceTree = "<group>"; };
+		4C4C8F83198F41A6003A11E0 /* feedmenow_mockup.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = feedmenow_mockup.jpg; sourceTree = "<group>"; };
+		4C4C8F84198F41A6003A11E0 /* feedmenow_mockup.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = feedmenow_mockup.psd; sourceTree = "<group>"; };
+		4C4C8F85198F41A6003A11E0 /* iphone-calling.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone-calling.png"; sourceTree = "<group>"; };
+		4C4C8FA6198F4215003A11E0 /* PresentingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingViewController.h; sourceTree = "<group>"; };
+		4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingViewController.m; sourceTree = "<group>"; };
+		4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentingViewController.xib; sourceTree = "<group>"; };
 		4CAD0760198E9F59005E04FB /* ParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingOperation.h; sourceTree = "<group>"; };
 		4CAD0761198E9F59005E04FB /* ParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingOperation.m; sourceTree = "<group>"; };
 		CE036E861972F221003251B8 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = FeedMeNow/Address.h; sourceTree = "<group>"; };
@@ -112,6 +181,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C4C8F62198F41A6003A11E0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C8F63198F41A6003A11E0 /* assets */,
+				4C4C8F7E198F41A6003A11E0 /* feedmenow-copy.psd */,
+				4C4C8F7F198F41A6003A11E0 /* feedmenow-logo.psd */,
+				4C4C8F80198F41A6003A11E0 /* Feedmenow-main.psd */,
+				4C4C8F81198F41A6003A11E0 /* feedmenow_graphic.gif */,
+				4C4C8F82198F41A6003A11E0 /* feedmenow_graphic.psd */,
+				4C4C8F83198F41A6003A11E0 /* feedmenow_mockup.jpg */,
+				4C4C8F84198F41A6003A11E0 /* feedmenow_mockup.psd */,
+				4C4C8F85198F41A6003A11E0 /* iphone-calling.png */,
+			);
+			name = Assets;
+			path = feedmenow;
+			sourceTree = "<group>";
+		};
+		4C4C8F63198F41A6003A11E0 /* assets */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C8F64198F41A6003A11E0 /* bellota */,
+				4C4C8F6C198F41A6003A11E0 /* button.psd */,
+				4C4C8F6D198F41A6003A11E0 /* cabin */,
+				4C4C8F77198F41A6003A11E0 /* coral_logo.png */,
+				4C4C8F78198F41A6003A11E0 /* feedme_button.png */,
+				4C4C8F79198F41A6003A11E0 /* logo_white.png */,
+				4C4C8F7A198F41A6003A11E0 /* next_button.png */,
+				4C4C8F7B198F41A6003A11E0 /* ribbon.png */,
+				4C4C8F7C198F41A6003A11E0 /* ribbon.psd */,
+				4C4C8F7D198F41A6003A11E0 /* ribbon_2.png */,
+			);
+			path = assets;
+			sourceTree = "<group>";
+		};
+		4C4C8F64198F41A6003A11E0 /* bellota */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */,
+				4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */,
+				4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */,
+				4C4C8F68198F41A6003A11E0 /* Bellota-Light.otf */,
+				4C4C8F69198F41A6003A11E0 /* Bellota-LightItalic.otf */,
+				4C4C8F6A198F41A6003A11E0 /* Bellota-Regular.otf */,
+				4C4C8F6B198F41A6003A11E0 /* SIL Open Font License.txt */,
+			);
+			path = bellota;
+			sourceTree = "<group>";
+		};
+		4C4C8F6D198F41A6003A11E0 /* cabin */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C8F6E198F41A6003A11E0 /* Cabin-Bold.otf */,
+				4C4C8F6F198F41A6003A11E0 /* Cabin-BoldItalic.otf */,
+				4C4C8F70198F41A6003A11E0 /* Cabin-Italic.otf */,
+				4C4C8F71198F41A6003A11E0 /* Cabin-Medium.otf */,
+				4C4C8F72198F41A6003A11E0 /* Cabin-MediumItalic.otf */,
+				4C4C8F73198F41A6003A11E0 /* Cabin-Regular.otf */,
+				4C4C8F74198F41A6003A11E0 /* Cabin-SemiBold.otf */,
+				4C4C8F75198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf */,
+				4C4C8F76198F41A6003A11E0 /* SIL Open Font License.txt */,
+			);
+			path = cabin;
+			sourceTree = "<group>";
+		};
+		4C4C8FAB198F421D003A11E0 /* Presenting */ = {
+			isa = PBXGroup;
+			children = (
+				4C4C8FA6198F4215003A11E0 /* PresentingViewController.h */,
+				4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */,
+				4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */,
+			);
+			name = Presenting;
+			sourceTree = "<group>";
+		};
 		CE290853196BB7B3008310CE = {
 			isa = PBXGroup;
 			children = (
@@ -155,6 +298,7 @@
 				CE29086F196BB7B3008310CE /* AppDelegate.m */,
 				CE290871196BB7B3008310CE /* Images.xcassets */,
 				CE290866196BB7B3008310CE /* Supporting Files */,
+				4C4C8FAB198F421D003A11E0 /* Presenting */,
 				CE9D94D41988B01100139BCB /* Loading */,
 				CE9D94D51988B02100139BCB /* Home  */,
 			);
@@ -164,6 +308,7 @@
 		CE290866196BB7B3008310CE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4C4C8F62198F41A6003A11E0 /* Assets */,
 				CE290867196BB7B3008310CE /* FeedMeNow-Info.plist */,
 				CE290868196BB7B3008310CE /* InfoPlist.strings */,
 				CE29086B196BB7B3008310CE /* main.m */,
@@ -330,10 +475,43 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C4C8F9D198F41A6003A11E0 /* ribbon_2.png in Resources */,
+				4C4C8F96198F41A6003A11E0 /* SIL Open Font License.txt in Resources */,
+				4C4C8F8B198F41A6003A11E0 /* Bellota-Regular.otf in Resources */,
+				4C4C8F97198F41A6003A11E0 /* coral_logo.png in Resources */,
+				4C4C8F92198F41A6003A11E0 /* Cabin-MediumItalic.otf in Resources */,
+				4C4C8FAA198F4215003A11E0 /* PresentingViewController.xib in Resources */,
+				4C4C8F9F198F41A6003A11E0 /* feedmenow-logo.psd in Resources */,
+				4C4C8F8C198F41A6003A11E0 /* SIL Open Font License.txt in Resources */,
+				4C4C8F9C198F41A6003A11E0 /* ribbon.psd in Resources */,
+				4C4C8F91198F41A6003A11E0 /* Cabin-Medium.otf in Resources */,
+				4C4C8F89198F41A6003A11E0 /* Bellota-Light.otf in Resources */,
+				4C4C8F9E198F41A6003A11E0 /* feedmenow-copy.psd in Resources */,
+				4C4C8F8D198F41A6003A11E0 /* button.psd in Resources */,
 				CE29086A196BB7B3008310CE /* InfoPlist.strings in Resources */,
 				CE290872196BB7B3008310CE /* Images.xcassets in Resources */,
+				4C4C8F9A198F41A6003A11E0 /* next_button.png in Resources */,
+				4C4C8F99198F41A6003A11E0 /* logo_white.png in Resources */,
+				4C4C8FA1198F41A6003A11E0 /* feedmenow_graphic.gif in Resources */,
+				4C4C8FA4198F41A6003A11E0 /* feedmenow_mockup.psd in Resources */,
+				4C4C8F87198F41A6003A11E0 /* Bellota-BoldItalic.otf in Resources */,
+				4C4C8F8E198F41A6003A11E0 /* Cabin-Bold.otf in Resources */,
+				4C4C8FA3198F41A6003A11E0 /* feedmenow_mockup.jpg in Resources */,
+				4C4C8F8F198F41A6003A11E0 /* Cabin-BoldItalic.otf in Resources */,
+				4C4C8F9B198F41A6003A11E0 /* ribbon.png in Resources */,
+				4C4C8FA5198F41A6003A11E0 /* iphone-calling.png in Resources */,
+				4C4C8F98198F41A6003A11E0 /* feedme_button.png in Resources */,
+				4C4C8F90198F41A6003A11E0 /* Cabin-Italic.otf in Resources */,
+				4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */,
 				CE290892196BB878008310CE /* HomeViewController.xib in Resources */,
+				4C4C8F95198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf in Resources */,
+				4C4C8F93198F41A6003A11E0 /* Cabin-Regular.otf in Resources */,
+				4C4C8F88198F41A6003A11E0 /* Bellota-Italic.otf in Resources */,
+				4C4C8FA2198F41A6003A11E0 /* feedmenow_graphic.psd in Resources */,
 				CE9D94D31988AFD900139BCB /* LoadingViewController.xib in Resources */,
+				4C4C8F94198F41A6003A11E0 /* Cabin-SemiBold.otf in Resources */,
+				4C4C8FA0198F41A6003A11E0 /* Feedmenow-main.psd in Resources */,
+				4C4C8F8A198F41A6003A11E0 /* Bellota-LightItalic.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -393,6 +571,7 @@
 				CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */,
 				CE29086C196BB7B3008310CE /* main.m in Sources */,
 				CE290891196BB878008310CE /* HomeViewController.m in Sources */,
+				4C4C8FA9198F4215003A11E0 /* PresentingViewController.m in Sources */,
 				CEE8216519719D5500E293E2 /* OrdrClient.m in Sources */,
 				CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */,
 			);

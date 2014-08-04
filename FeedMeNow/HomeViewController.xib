@@ -9,6 +9,7 @@
                 <outlet property="entreeLabel" destination="NDt-nl-9Ib" id="5Gs-TH-hRb"/>
                 <outlet property="feedMeNowButton" destination="q5f-Ix-NxB" id="Ql7-wv-dPx"/>
                 <outlet property="generateFoodButton" destination="OfX-5d-SfX" id="sDr-zY-ajz"/>
+                <outlet property="logoBackground" destination="o8N-68-Dhw" id="rOF-Sy-goo"/>
                 <outlet property="restaurantLabel" destination="vDP-4j-fjx" id="8Kv-5G-SUp"/>
                 <outlet property="suggestionLabel" destination="oTJ-v0-Act" id="nsX-OQ-32h"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -44,7 +45,7 @@
                     </connections>
                 </button>
                 <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Why don't you try" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oTJ-v0-Act">
-                    <rect key="frame" x="51" y="44" width="218" height="21"/>
+                    <rect key="frame" x="45" y="100" width="218" height="21"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="18"/>
                     <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -67,17 +68,24 @@
                         <action selector="generateRandomSuggestion:" destination="-1" eventType="touchUpInside" id="FFY-Rx-de3"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="57R-EN-Jot">
-                    <rect key="frame" x="130" y="167" width="46" height="30"/>
+                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o8N-68-Dhw">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="61"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Button">
-                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                </button>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="logo_white.png" translatesAutoresizingMaskIntoConstraints="NO" id="jnl-bf-yaV">
+                            <rect key="frame" x="85" y="11" width="150" height="39"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="0.64234582917869887" green="0.85523806523358303" blue="0.95686274509803926" alpha="1" colorSpace="calibratedRGB"/>
+            <color key="backgroundColor" red="0.95686274509803926" green="0.83652342776758293" blue="0.25002749664525187" alpha="1" colorSpace="calibratedRGB"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
+    <resources>
+        <image name="logo_white.png" width="352" height="61"/>
+    </resources>
 </document>

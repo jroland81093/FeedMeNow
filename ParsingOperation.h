@@ -10,16 +10,7 @@
 
 @interface ParsingOperation : NSOperation
 
-- (id)initWithData: (NSData *)responseData usingRestaurants:(NSDictionary *)restaurants usingSuggestions: (NSMutableArray *)suggestions withNonEntreeNames: (NSArray *)badEntreeNames;
-
-- (id)initWithData: (NSData *)responseData usingRestaurants:(NSDictionary *)restaurants usingSuggestionsDictionary: (NSMutableDictionary *)suggestions withNonEntreeNames: (NSArray *)badEntreeNames;
-
-//API Keys and Requests
-#define ORDER_KEY @"QwueeaKvypUVCC2j4KqGQJYfzvXU6Zb4wYeR13ZTsV0"
-#define MASHAPE_KEY @"yd0ET5PqwnmshXdvb4WhY7XqgMdyp1sJ1CojsnnkFfDK1IO69U"
-#define HTTP_REQUEST_GET @"GET"
-#define ORDRIN_REQUEST_HEADER @"X-NAAMA-CLIENT-AUTHENTICATION"
-
+- (id)initWithData: (NSData *)responseData withRestaurantDictionary:(NSMutableDictionary *)restaurantDictionary withSuggestionArray:(NSMutableArray *)suggestionArray;
 
 //Fixed Strings for Restaurant API Requests
 #define K_RESTAURANT_IS_DELIVERING @"is_delivering"
