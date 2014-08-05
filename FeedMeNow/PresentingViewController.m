@@ -50,7 +50,7 @@
 
 - (void)presentNextViewController
 {
-    LoadingViewController *lvc = [[LoadingViewController alloc] init];
+    LoadingViewController *lvc = [[LoadingViewController alloc] initWithParentViewController:self];
     [self presentViewController:lvc animated:YES completion:nil];
 }
 @end

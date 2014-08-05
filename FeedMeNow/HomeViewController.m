@@ -109,13 +109,6 @@
     [[self entreeLabel] setText:[suggestion entreeName]];
     [[self restaurantLabel] setText:[suggestion restaurantName]];
     currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
-    /*
-    NSUInteger randomIndex = rand() % [allSuggestions count];
-    Suggestion *suggestion = [allSuggestions objectAtIndex:randomIndex];
-    [[self entreeLabel] setText:[suggestion entreeName]];
-    [[self restaurantLabel] setText:[suggestion restaurantName]];
-    currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
-     */
 }
 
 - (void)filterSuggestions

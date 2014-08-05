@@ -17,13 +17,31 @@
     OrdrClient *client;
     CLLocationManager *locationManager;
     CLLocationCoordinate2D userLocation;
+    
     NSMutableDictionary *allSuggestions;
+    //Storage for restaurant suggestions.
 }
 
 @end
 
 @implementation LoadingViewController
 
+- (id)initWithParentViewController:(UIViewController *)viewController
+{
+    self = [super init];
+    if (self) {
+        viewController = nil;
+        
+        client = [[OrdrClient alloc] initWithLoadingViewController:self];
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager setDelegate:self];
+        allSuggestions = [[NSMutableDictionary alloc] init];
+        
+        userLocation.latitude = 0;
+        userLocation.longitude = 0;
+    }
+    return self;
+}
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];

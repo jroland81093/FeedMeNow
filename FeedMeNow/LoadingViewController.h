@@ -14,6 +14,7 @@
 
 @interface LoadingViewController : UIViewController <CLLocationManagerDelegate>
 
+- (id)initWithParentViewController: (UIViewController *)viewController;
 - (void)generateUserInterface;
 //Used as a callback function after API responses.
 
