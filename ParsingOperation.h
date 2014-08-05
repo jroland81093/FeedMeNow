@@ -12,6 +12,8 @@
 
 - (id)initWithData: (NSData *)responseData withRestaurantDictionary:(NSMutableDictionary *)restaurantDictionary withSuggestionArray:(NSMutableArray *)suggestionArray;
 
+- (id)initWithData: (NSData *)responseData withRestaurantDictionary:(NSMutableDictionary *)restaurantDictionary withSuggestionDictionary:(NSMutableDictionary *)suggestionDictionary;
+
 //Fixed Strings for Restaurant API Requests
 #define K_RESTAURANT_IS_DELIVERING @"is_delivering"
 #define K_RESTAURANT_ID @"id"

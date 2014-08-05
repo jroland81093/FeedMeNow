@@ -19,7 +19,6 @@
 
 @property (strong, nonatomic) IBOutlet RZSquaresLoading *progressIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
-@property (strong, nonatomic) NSMutableArray *diningSuggestions;
-
+@property (strong, nonatomic) NSMutableArray *restaurantIDs;
 
 @end

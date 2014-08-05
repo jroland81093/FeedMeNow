@@ -136,7 +136,8 @@
 
 
 #pragma mark - Get entrees of restaurants
-- (void) generateAllEntreesToArray: (NSMutableArray *)array
+
+- (void) generateAllEntreesToDictionary: (NSMutableDictionary *)dictionary;
 //Find and store all deliverables nearby into the singleton instance.
 {
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
@@ -155,10 +156,13 @@
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
         [request setURL:url];
         
+        NSMutableArray *arr = [[NSMutableArray alloc] init];
+        [dictionary setValue:arr forKey:[restaurant restaurantID]];
+        
         //Send operation and parse upon completion.
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject withRestaurantDictionary:deliverableRestaurants withSuggestionArray:array];
+            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject withRestaurantDictionary:deliverableRestaurants withSuggestionDictionary:dictionary];
             [operationQueue addOperation:parsingOperation];
             
             //Log and present UI when necessary.
@@ -166,6 +170,7 @@
             NSLog(@"%d/%d", self.numCompletedResponses, [deliverableRestaurantsIDs count]);
             if (self.numCompletedResponses == [deliverableRestaurantsIDs count])
             {
+                [delegate setRestaurantIDs:deliverableRestaurantsIDs];
                 [delegate generateUserInterface];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -175,6 +180,7 @@
         [operationQueue addOperation:operation];
     }
 }
+
 
 #pragma mark - Helper functions
 - (void) presentLocationError

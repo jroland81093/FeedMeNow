@@ -21,6 +21,7 @@
 - (Address *)addressNearCoordinate: (CLLocationCoordinate2D)coordinate;
 - (BOOL)findRestaurantsNearCoordinate: (CLLocationCoordinate2D)coordinate;
 - (void) generateAllEntreesToArray: (NSMutableArray *)array;
+- (void) generateAllEntreesToDictionary: (NSMutableDictionary *)dictionary;
 
 @property (atomic) NSUInteger numCompletedResponses;
 

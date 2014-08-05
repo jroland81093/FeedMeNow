@@ -17,21 +17,22 @@
     OrdrClient *client;
     CLLocationManager *locationManager;
     CLLocationCoordinate2D userLocation;
+    NSMutableDictionary *allSuggestions;
 }
 
 @end
 
 @implementation LoadingViewController
-@synthesize  diningSuggestions;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         client = [[OrdrClient alloc] initWithLoadingViewController:self];
-        diningSuggestions = [[NSMutableArray alloc] init];
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setDelegate:self];
+        allSuggestions = [[NSMutableDictionary alloc] init];
+        
         userLocation.latitude = 0;
         userLocation.longitude = 0;
     }
@@ -62,7 +63,7 @@
 
 - (void)generateUserInterface
 {
-    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:diningSuggestions];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:allSuggestions withRestaurantIdentifiers:[self restaurantIDs]];
     [self presentViewController:hvc animated:YES completion:nil];
 }
 
@@ -82,7 +83,7 @@
         {
             [[self progressIndicator] setColor:[UIColor emerlandColor]];
             [[self progressLabel] setText:@"Generating menu information..."];
-            [client generateAllEntreesToArray:diningSuggestions];
+            [client generateAllEntreesToDictionary:allSuggestions];
         }
         else
         {

@@ -24,9 +24,8 @@
 @interface HomeViewController ()
 {
     NSMutableString *currentPhoneNumber;
-    NSMutableArray *allSuggestions;
+    NSMutableArray *restaurantIDs;
     NSMutableDictionary *allSuggestionsDictionary;
-    
     //UI
     __weak IBOutlet UIView *logoBackground;
 }
@@ -35,13 +34,12 @@
 
 @implementation HomeViewController
 
-- (id) initWithSuggestions:(NSMutableArray *)suggestions
+- (id) initWithSuggestions:(NSMutableDictionary *)suggestions withRestaurantIdentifiers: (NSMutableArray *)restaurantIdentifiers;
 {
     self = [super init];
     if (self) {
-    
-        allSuggestionsDictionary = [[NSMutableDictionary alloc] init];
-        allSuggestions = suggestions;
+        allSuggestionsDictionary = suggestions;
+        restaurantIDs = restaurantIdentifiers;
     }
     return self;
 }
@@ -67,7 +65,7 @@
     [[self entreeLabel] setFont:dynamicFont];
     [[self restaurantLabel] setFont:dynamicFont];
     
-    
+    [self filterSuggestions];
     [self generateRandomSuggestion:nil];
     /*
     for (NSString* family in [UIFont familyNames])
@@ -102,11 +100,35 @@
 
 - (IBAction)generateRandomSuggestion:(id)sender {
 
+    NSUInteger randomRestaurantIndex = rand() % [restaurantIDs count];
+    NSString *randomRestaurantName = [restaurantIDs objectAtIndex:randomRestaurantIndex];
+    NSMutableArray *entrees = [allSuggestionsDictionary valueForKey:randomRestaurantName];
+    //For each restaurant ID
+    NSUInteger randomEntreeIndex = rand() % [entrees count];
+    Suggestion *suggestion = [entrees objectAtIndex:randomEntreeIndex];
+    [[self entreeLabel] setText:[suggestion entreeName]];
+    [[self restaurantLabel] setText:[suggestion restaurantName]];
+    currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
+    /*
     NSUInteger randomIndex = rand() % [allSuggestions count];
     Suggestion *suggestion = [allSuggestions objectAtIndex:randomIndex];
     [[self entreeLabel] setText:[suggestion entreeName]];
     [[self restaurantLabel] setText:[suggestion restaurantName]];
     currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
+     */
+}
+
+- (void)filterSuggestions
+{
+    
+    for (NSString *restaurantID in [restaurantIDs copy])
+    {
+        NSMutableArray *restaurants = [allSuggestionsDictionary valueForKey:restaurantID];
+        if (![restaurants count])
+        {
+            [restaurantIDs removeObjectIdenticalTo:restaurantID];
+        }
+    }
 }
 
 @end

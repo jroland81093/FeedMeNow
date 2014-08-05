@@ -14,7 +14,7 @@
 
 @interface HomeViewController : UIViewController
 
-- (id) initWithSuggestions:(NSMutableArray *)suggestions;
+- (id) initWithSuggestions:(NSMutableDictionary *)suggestions withRestaurantIdentifiers: (NSMutableArray *)restaurantIdentifiers;
 
 //Static text
 @property (strong, nonatomic) IBOutlet UILabel *suggestionLabel;
