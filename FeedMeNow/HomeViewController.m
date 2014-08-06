@@ -25,7 +25,8 @@
 {
     NSMutableString *currentPhoneNumber;
     NSMutableArray *restaurantIDs;
-    NSMutableDictionary *allSuggestionsDictionary;
+    NSMutableDictionary *allSuggestions;
+    
     //UI
     __weak IBOutlet UIView *logoBackground;
 }
@@ -38,7 +39,7 @@
 {
     self = [super init];
     if (self) {
-        allSuggestionsDictionary = suggestions;
+        allSuggestions = suggestions;
         restaurantIDs = restaurantIdentifiers;
     }
     return self;
@@ -65,6 +66,7 @@
     [[self entreeLabel] setFont:dynamicFont];
     [[self restaurantLabel] setFont:dynamicFont];
     
+    //Filter through suggestions array, then generate a random suggestion.
     [self filterSuggestions];
     [self generateRandomSuggestion:nil];
     /*
@@ -102,7 +104,7 @@
 
     NSUInteger randomRestaurantIndex = rand() % [restaurantIDs count];
     NSString *randomRestaurantName = [restaurantIDs objectAtIndex:randomRestaurantIndex];
-    NSMutableArray *entrees = [allSuggestionsDictionary valueForKey:randomRestaurantName];
+    NSMutableArray *entrees = [allSuggestions valueForKey:randomRestaurantName];
     //For each restaurant ID
     NSUInteger randomEntreeIndex = rand() % [entrees count];
     Suggestion *suggestion = [entrees objectAtIndex:randomEntreeIndex];
@@ -116,12 +118,13 @@
     
     for (NSString *restaurantID in [restaurantIDs copy])
     {
-        NSMutableArray *restaurants = [allSuggestionsDictionary valueForKey:restaurantID];
+        NSMutableArray *restaurants = [allSuggestions valueForKey:restaurantID];
         if (![restaurants count])
         {
             [restaurantIDs removeObjectIdenticalTo:restaurantID];
         }
     }
+    NSLog(@"%lu restaurants total", (unsigned long)[restaurantIDs count]);
 }
 
 @end

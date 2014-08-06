@@ -20,9 +20,9 @@
 //API Functions
 - (Address *)addressNearCoordinate: (CLLocationCoordinate2D)coordinate;
 - (BOOL)findRestaurantsNearCoordinate: (CLLocationCoordinate2D)coordinate;
-- (void) generateAllEntreesToArray: (NSMutableArray *)array;
 - (void) generateAllEntreesToDictionary: (NSMutableDictionary *)dictionary;
 
+//Callback to generate UI
 @property (atomic) NSUInteger numCompletedResponses;
 
 //API Keys and Requests

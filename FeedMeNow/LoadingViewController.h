@@ -16,10 +16,9 @@
 
 - (id)initWithParentViewController: (UIViewController *)viewController;
 - (void)generateUserInterface;
-//Used as a callback function after API responses.
 
 @property (strong, nonatomic) IBOutlet RZSquaresLoading *progressIndicator;
 @property (weak, nonatomic) IBOutlet UILabel *progressLabel;
-@property (strong, nonatomic) NSMutableArray *restaurantIDs;
+@property (strong, nonatomic) NSMutableArray *suggestionRestaurantIDs;
 
 @end

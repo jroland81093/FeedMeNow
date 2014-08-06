@@ -62,7 +62,7 @@
     [super viewDidLoad];
     UIFont *labelFont = [UIFont fontWithName:@"Bellota-Bold" size:LABEL_FONT_SIZE];
     
-    [[self progressIndicator] setColor:[UIColor pomegranateColor]];
+    [[self progressIndicator] setColor:[UIColor belizeHoleColor]];
     [[self progressLabel] setText:@"Finding your location..."];
     [[self progressLabel] setFont:labelFont];
     [locationManager startUpdatingLocation];
@@ -81,7 +81,7 @@
 
 - (void)generateUserInterface
 {
-    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:allSuggestions withRestaurantIdentifiers:[self restaurantIDs]];
+    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:allSuggestions withRestaurantIdentifiers:[self suggestionRestaurantIDs]];
     [self presentViewController:hvc animated:YES completion:nil];
 }
 

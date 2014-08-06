@@ -20,8 +20,8 @@
     NSOperationQueue *operationQueue;
     
     //Containers
-    NSMutableArray *deliverableRestaurantsIDs;
-    NSMutableDictionary *deliverableRestaurants;
+    NSMutableArray *suggestionRestaurantIDs;
+    NSMutableDictionary *suggestionRestaurants;
     NSArray *nonEntreesNames;
     
     BOOL presentedViewController;
@@ -37,8 +37,8 @@
         delegate = loadingViewController;
         operationQueue = [[NSOperationQueue alloc] init];
         
-        deliverableRestaurants = [[NSMutableDictionary alloc] init];
-        deliverableRestaurantsIDs = [[NSMutableArray alloc] init];
+        suggestionRestaurantIDs = [[NSMutableArray alloc] init];
+        suggestionRestaurants = [[NSMutableDictionary alloc] init];
         
         self.numCompletedResponses = 0;
         presentedViewController = NO;
@@ -89,7 +89,7 @@
     if (userAddress)
     {
         //Update user interface
-        [[delegate progressIndicator] setColor: [UIColor belizeHoleColor]];
+        [[delegate progressIndicator] setColor: [UIColor cloudsColor]];
         [[delegate progressLabel] setText:@"Finding nearby restaurants..."];
         
         //Set up URL Request
@@ -123,8 +123,8 @@
                     [deliveryRestaurant setName:[restaurant valueForKey:K_RESTAURANT_NAME]];
                     [deliveryRestaurant setPhoneNumber:[restaurant valueForKey:K_RESTAURANT_PHONE]];
                     
-                    [deliverableRestaurantsIDs addObject:restaurantID];
-                    [deliverableRestaurants setValue:deliveryRestaurant forKey:restaurantID];
+                    [suggestionRestaurantIDs addObject:restaurantID];
+                    [suggestionRestaurants setValue:deliveryRestaurant forKey:restaurantID];
                 }
             }
             NSLog(@"Successfully found nearby restaurants");
@@ -144,15 +144,16 @@
     [request setHTTPMethod:HTTP_REQUEST_GET];
     [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
     
-    if ([deliverableRestaurantsIDs count] == 0)
+    if ([suggestionRestaurantIDs count] == 0)
     {
         [self presentLocationError];
+        [[delegate progressIndicator] setColor:[UIColor redColor]];
     }
     
-    for (NSString *restaurantID in deliverableRestaurantsIDs)
+    for (NSString *restaurantID in suggestionRestaurantIDs)
     {
         //Setup URL
-        Restaurant *restaurant = [deliverableRestaurants objectForKey:restaurantID];
+        Restaurant *restaurant = [suggestionRestaurants objectForKey:restaurantID];
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
         [request setURL:url];
         
@@ -162,15 +163,15 @@
         //Send operation and parse upon completion.
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject withRestaurantDictionary:deliverableRestaurants withSuggestionDictionary:dictionary];
+            ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject withRestaurantDictionary:suggestionRestaurants withSuggestionDictionary:dictionary];
             [operationQueue addOperation:parsingOperation];
             
             //Log and present UI when necessary.
             self.numCompletedResponses++;
-            NSLog(@"%d/%d", self.numCompletedResponses, [deliverableRestaurantsIDs count]);
-            if (self.numCompletedResponses == [deliverableRestaurantsIDs count])
+            NSLog(@"%d/%d", self.numCompletedResponses, [suggestionRestaurantIDs count]);
+            if (self.numCompletedResponses == [suggestionRestaurantIDs count])
             {
-                [delegate setRestaurantIDs:deliverableRestaurantsIDs];
+                [delegate setSuggestionRestaurantIDs:suggestionRestaurantIDs];
                 [delegate generateUserInterface];
             }
         } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

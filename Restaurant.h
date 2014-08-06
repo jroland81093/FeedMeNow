@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface Restaurant : NSObject <NSCoding>
+@interface Restaurant : NSObject
 @property (nonatomic, strong) NSString *name;
 @property (nonatomic, strong) NSString *phoneNumber;
 @property (nonatomic, strong) NSString *restaurantID;

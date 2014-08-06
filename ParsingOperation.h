@@ -10,8 +10,6 @@
 
 @interface ParsingOperation : NSOperation
 
-- (id)initWithData: (NSData *)responseData withRestaurantDictionary:(NSMutableDictionary *)restaurantDictionary withSuggestionArray:(NSMutableArray *)suggestionArray;
-
 - (id)initWithData: (NSData *)responseData withRestaurantDictionary:(NSMutableDictionary *)restaurantDictionary withSuggestionDictionary:(NSMutableDictionary *)suggestionDictionary;
 
 //Fixed Strings for Restaurant API Requests
