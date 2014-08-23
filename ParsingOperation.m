@@ -1,4 +1,4 @@
-//
+ //
 //  ParsingOperation.m
 //  FeedMeNow
 //
@@ -27,6 +27,8 @@
     self = [super init];
     if (self)
     {
+        
+        
         entireMenu = [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:K_RESTAURANT_MENU];
         restaurantName = [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:K_RESTAURANT_MENU_NAME];
         restaurantID = [[NSJSONSerialization JSONObjectWithData:responseData options:NSJSONReadingMutableContainers error:nil] valueForKeyPath:K_RESTAURANT_MENU_ID];

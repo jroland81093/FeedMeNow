@@ -69,17 +69,6 @@
     //Filter through suggestions array, then generate a random suggestion.
     [self filterSuggestions];
     [self generateRandomSuggestion:nil];
-    /*
-    for (NSString* family in [UIFont familyNames])
-    {
-        NSLog(@"%@", family);
-        
-        for (NSString* name in [UIFont fontNamesForFamilyName: family])
-        {
-            NSLog(@"  %@", name);
-        }
-    }
-     */
 }
 
 - (void)didReceiveMemoryWarning
@@ -89,6 +78,7 @@
 }
 
 #pragma mark - UDF
+
 - (IBAction)feedMeNow:(id)sender {
 
     NSString *phoneDigits = [[currentPhoneNumber componentsSeparatedByCharactersInSet:
@@ -101,21 +91,20 @@
 }
 
 - (IBAction)generateRandomSuggestion:(id)sender {
-
     NSUInteger randomRestaurantIndex = rand() % [restaurantIDs count];
-    NSString *randomRestaurantName = [restaurantIDs objectAtIndex:randomRestaurantIndex];
+    NSString *randomRestaurantName = [restaurantIDs objectAtIndex:[self randomIndex:randomRestaurantIndex withCountCap:[restaurantIDs count]]];
     NSMutableArray *entrees = [allSuggestions valueForKey:randomRestaurantName];
     //For each restaurant ID
     NSUInteger randomEntreeIndex = rand() % [entrees count];
-    Suggestion *suggestion = [entrees objectAtIndex:randomEntreeIndex];
+    Suggestion *suggestion = [entrees objectAtIndex:[self randomIndex:randomEntreeIndex withCountCap:[entrees count]]];
     [[self entreeLabel] setText:[suggestion entreeName]];
     [[self restaurantLabel] setText:[suggestion restaurantName]];
     currentPhoneNumber = [[suggestion phoneNumber] mutableCopy];
 }
 
+#pragma mark - Helper
 - (void)filterSuggestions
 {
-    
     for (NSString *restaurantID in [restaurantIDs copy])
     {
         NSMutableArray *restaurants = [allSuggestions valueForKey:restaurantID];
@@ -125,6 +114,13 @@
         }
     }
     NSLog(@"%lu restaurants total", (unsigned long)[restaurantIDs count]);
+}
+
+- (NSUInteger) randomIndex:(NSUInteger)randomParameter withCountCap:(NSUInteger)cap;
+{
+    NSUInteger randomInteger = rand() % 7; //Behavior of prime numbers mocks more random behavior.
+    NSUInteger randomTime = (NSUInteger)[[NSDate date] timeIntervalSince1970] % cap;
+    return (randomInteger + randomTime * randomParameter) % cap;
 }
 
 @end

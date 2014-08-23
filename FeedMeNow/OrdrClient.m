@@ -103,7 +103,7 @@
         NSHTTPURLResponse *responseCode = nil;
         NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
         if([responseCode statusCode] != 200){
-            NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
+            NSLog(@"Error getting %@, HTTP status code %li", url, (long)[responseCode statusCode]);
             return NO;
         }
         else
@@ -140,10 +140,6 @@
 - (void) generateAllEntreesToDictionary: (NSMutableDictionary *)dictionary;
 //Find and store all deliverables nearby into the singleton instance.
 {
-    NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
-    [request setHTTPMethod:HTTP_REQUEST_GET];
-    [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
-    
     if ([suggestionRestaurantIDs count] == 0)
     {
         [self presentLocationError];
@@ -155,20 +151,26 @@
         //Setup URL
         Restaurant *restaurant = [suggestionRestaurants objectForKey:restaurantID];
         NSURL *url = [[NSURL alloc] initWithString:[NSString stringWithFormat:@"https://r-test.ordr.in/rd/%@", [restaurant restaurantID]]];
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] init];
+        [request setHTTPMethod:HTTP_REQUEST_GET];
+        [request addValue:[NSString stringWithFormat:@"id=\"%@\", version=\"1\"", ordrKey] forHTTPHeaderField:ORDRIN_REQUEST_HEADER];
         [request setURL:url];
         
         NSMutableArray *arr = [[NSMutableArray alloc] init];
         [dictionary setValue:arr forKey:[restaurant restaurantID]];
         
         //Send operation and parse upon completion.
+        
         AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
         [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
             ParsingOperation *parsingOperation = [[ParsingOperation alloc] initWithData:responseObject withRestaurantDictionary:suggestionRestaurants withSuggestionDictionary:dictionary];
             [operationQueue addOperation:parsingOperation];
             
             //Log and present UI when necessary.
             self.numCompletedResponses++;
-            NSLog(@"%d/%d", self.numCompletedResponses, [suggestionRestaurantIDs count]);
+            NSLog(@"%lu/%lu", (unsigned long)self.numCompletedResponses, (unsigned long)[suggestionRestaurantIDs count]);
             if (self.numCompletedResponses == [suggestionRestaurantIDs count])
             {
                 [delegate setSuggestionRestaurantIDs:suggestionRestaurantIDs];

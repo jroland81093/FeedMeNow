@@ -124,7 +124,7 @@
     }
 }
 
-#pragma mark - Helper Functions
+#pragma mark - Helper
 
 - (void) presentLocationError
 //User didn't allow for location services
