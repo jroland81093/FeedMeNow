@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0C42BE466E454C2685258EE8 /* libPods-FeedMeNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F80C6B20738C437A94502362 /* libPods-FeedMeNow.a */; };
+		4C36A2B619A8FC3A00DC2F2F /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C36A2B419A8FC3A00DC2F2F /* ErrorViewController.m */; };
+		4C36A2B719A8FC3A00DC2F2F /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C36A2B519A8FC3A00DC2F2F /* ErrorViewController.xib */; };
 		4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */; };
 		4C4C8F87198F41A6003A11E0 /* Bellota-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */; };
 		4C4C8F88198F41A6003A11E0 /* Bellota-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */; };
@@ -59,7 +61,6 @@
 		CE290885196BB7B3008310CE /* FeedMeNowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE290884196BB7B3008310CE /* FeedMeNowTests.m */; };
 		CE290891196BB878008310CE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29088F196BB878008310CE /* HomeViewController.m */; };
 		CE290892196BB878008310CE /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE290890196BB878008310CE /* HomeViewController.xib */; };
-		CE290897196BB8F7008310CE /* YelpClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CE290896196BB8F7008310CE /* YelpClient.m */; };
 		CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94D01988AFD900139BCB /* LoadingViewController.m */; };
 		CE9D94D31988AFD900139BCB /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9D94D11988AFD900139BCB /* LoadingViewController.xib */; };
 		CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94DB1988BFB600139BCB /* Suggestion.m */; };
@@ -80,6 +81,9 @@
 
 /* Begin PBXFileReference section */
 		25B7F0EF6E714DA0B53550BE /* Pods-FeedMeNow.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMeNow.xcconfig"; path = "Pods/Pods-FeedMeNow.xcconfig"; sourceTree = "<group>"; };
+		4C36A2B319A8FC3A00DC2F2F /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
+		4C36A2B419A8FC3A00DC2F2F /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
+		4C36A2B519A8FC3A00DC2F2F /* ErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
 		4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Bold.otf"; sourceTree = "<group>"; };
 		4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-BoldItalic.otf"; sourceTree = "<group>"; };
 		4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Italic.otf"; sourceTree = "<group>"; };
@@ -140,8 +144,6 @@
 		CE29088E196BB878008310CE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE29088F196BB878008310CE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CE290890196BB878008310CE /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		CE290895196BB8F7008310CE /* YelpClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YelpClient.h; sourceTree = "<group>"; };
-		CE290896196BB8F7008310CE /* YelpClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YelpClient.m; sourceTree = "<group>"; };
 		CE9D94CF1988AFD900139BCB /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		CE9D94D01988AFD900139BCB /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		CE9D94D11988AFD900139BCB /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
@@ -181,6 +183,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C36A2B819A8FC3F00DC2F2F /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				4C36A2B319A8FC3A00DC2F2F /* ErrorViewController.h */,
+				4C36A2B419A8FC3A00DC2F2F /* ErrorViewController.m */,
+				4C36A2B519A8FC3A00DC2F2F /* ErrorViewController.xib */,
+			);
+			name = Error;
+			sourceTree = "<group>";
+		};
 		4C4C8F62198F41A6003A11E0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -298,6 +310,7 @@
 				CE29086F196BB7B3008310CE /* AppDelegate.m */,
 				CE290871196BB7B3008310CE /* Images.xcassets */,
 				CE290866196BB7B3008310CE /* Supporting Files */,
+				4C36A2B819A8FC3F00DC2F2F /* Error */,
 				4C4C8FAB198F421D003A11E0 /* Presenting */,
 				CE9D94D41988B01100139BCB /* Loading */,
 				CE9D94D51988B02100139BCB /* Home  */,
@@ -339,19 +352,9 @@
 			isa = PBXGroup;
 			children = (
 				CEE8216219719D2C00E293E2 /* Ordr.in */,
-				CE290898196BB8FB008310CE /* Yelp */,
 			);
 			name = API;
 			path = FeedMeNow;
-			sourceTree = "<group>";
-		};
-		CE290898196BB8FB008310CE /* Yelp */ = {
-			isa = PBXGroup;
-			children = (
-				CE290895196BB8F7008310CE /* YelpClient.h */,
-				CE290896196BB8F7008310CE /* YelpClient.m */,
-			);
-			name = Yelp;
 			sourceTree = "<group>";
 		};
 		CE9D94D41988B01100139BCB /* Loading */ = {
@@ -503,6 +506,7 @@
 				4C4C8F8F198F41A6003A11E0 /* Cabin-BoldItalic.otf in Resources */,
 				4C4C8F9B198F41A6003A11E0 /* ribbon.png in Resources */,
 				4C4C8FA5198F41A6003A11E0 /* iphone-calling.png in Resources */,
+				4C36A2B719A8FC3A00DC2F2F /* ErrorViewController.xib in Resources */,
 				4C4C8F98198F41A6003A11E0 /* feedme_button.png in Resources */,
 				4C4C8F90198F41A6003A11E0 /* Cabin-Italic.otf in Resources */,
 				4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */,
@@ -566,9 +570,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C36A2B619A8FC3A00DC2F2F /* ErrorViewController.m in Sources */,
 				CE036E881972F221003251B8 /* Address.m in Sources */,
 				CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */,
-				CE290897196BB8F7008310CE /* YelpClient.m in Sources */,
 				CE290870196BB7B3008310CE /* AppDelegate.m in Sources */,
 				4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */,
 				CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */,

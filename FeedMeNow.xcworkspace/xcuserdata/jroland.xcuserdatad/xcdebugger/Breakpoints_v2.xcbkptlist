@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "FeedMeNow/LoadingViewController.m"
-            timestampString = "430456625.942688"
+            timestampString = "430505708.951713"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "85"
-            endingLineNumber = "85"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-generateUserInterface"
             landmarkType = "5">
          </BreakpointContent>

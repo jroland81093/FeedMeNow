@@ -9,6 +9,7 @@
 #import "LoadingViewController.h"
 #import "OrdrClient.h"
 #import "HomeViewController.h"
+#import "ErrorViewController.h"
 
 #define LABEL_FONT_SIZE (int) 26
 
@@ -25,6 +26,22 @@
 @end
 
 @implementation LoadingViewController
+
+- (id)init
+{
+    self = [super init];
+    if (self) {
+
+        client = [[OrdrClient alloc] initWithLoadingViewController:self];
+        locationManager = [[CLLocationManager alloc] init];
+        [locationManager setDelegate:self];
+        allSuggestions = [[NSMutableDictionary alloc] init];
+        
+        userLocation.latitude = 0;
+        userLocation.longitude = 0;
+    }
+    return self;
+}
 
 - (id)initWithParentViewController:(UIViewController *)viewController
 {

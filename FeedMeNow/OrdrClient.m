@@ -10,6 +10,7 @@
 #import "Restaurant.h"
 #import "Suggestion.h"
 #import "ParsingOperation.h"
+#import "ErrorViewController.h"
 
 @implementation OrdrClient
 {
@@ -62,7 +63,7 @@
     NSHTTPURLResponse *responseCode = nil;
     NSData *oResponseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&responseCode error:&error];
     if([responseCode statusCode] != 200){
-        NSLog(@"Error getting %@, HTTP status code %i", url, [responseCode statusCode]);
+        NSLog(@"Error getting %@, HTTP status code %li", url, (long)[responseCode statusCode]);
         return nil;
     }
     else
