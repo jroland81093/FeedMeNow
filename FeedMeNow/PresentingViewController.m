@@ -8,7 +8,7 @@
 
 #import "PresentingViewController.h"
 #import "LoadingViewController.h"
-#import "HomeViewController.h"
+#import "SuggestionViewController.h"
 
 #define RED_COMPONENT (float) 238/255
 #define GREEN_COMPONENT (float) 131/255

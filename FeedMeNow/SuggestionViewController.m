@@ -1,12 +1,12 @@
 //
-//  HomeViewController.m
+//  SuggestionViewController.m
 //  FeedMeNow
 //
 //  Created by Jamey Roland on 7/7/14.
 //  Copyright (c) 2014 Jamey Roland. All rights reserved.
 //
 
-#import "HomeViewController.h"
+#import "SuggestionViewController.h"
 #import "Suggestion.h"
 
 //Yellow color
@@ -21,7 +21,7 @@
 
 #define LABEL_FONT_SIZE (int) 26
 
-@interface HomeViewController ()
+@interface SuggestionViewController ()
 {
     NSMutableString *currentPhoneNumber;
     NSMutableArray *restaurantIDs;
@@ -33,7 +33,7 @@
 
 @end
 
-@implementation HomeViewController
+@implementation SuggestionViewController
 
 - (id) initWithSuggestions:(NSMutableDictionary *)suggestions withRestaurantIdentifiers: (NSMutableArray *)restaurantIdentifiers;
 {
@@ -80,14 +80,14 @@
 #pragma mark - UDF
 
 - (IBAction)feedMeNow:(id)sender {
-
+    
     NSString *phoneDigits = [[currentPhoneNumber componentsSeparatedByCharactersInSet:
-                            [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
-                           componentsJoinedByString:@""];
+                              [[NSCharacterSet decimalDigitCharacterSet] invertedSet]]
+                             componentsJoinedByString:@""];
     NSString *phonePrompt = [NSString stringWithFormat:@"telprompt://%@", phoneDigits];
     [[UIApplication sharedApplication] openURL:[NSURL URLWithString:phonePrompt]];
     NSLog(@"User called %@", currentPhoneNumber);
-
+    
 }
 
 - (IBAction)generateRandomSuggestion:(id)sender {

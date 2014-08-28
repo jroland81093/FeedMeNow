@@ -8,8 +8,7 @@
 
 #import "LoadingViewController.h"
 #import "OrdrClient.h"
-#import "HomeViewController.h"
-#import "ErrorViewController.h"
+#import "SuggestionViewController.h"
 
 #define LABEL_FONT_SIZE (int) 26
 
@@ -27,42 +26,12 @@
 
 @implementation LoadingViewController
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-
-        client = [[OrdrClient alloc] initWithLoadingViewController:self];
-        locationManager = [[CLLocationManager alloc] init];
-        [locationManager setDelegate:self];
-        allSuggestions = [[NSMutableDictionary alloc] init];
-        
-        userLocation.latitude = 0;
-        userLocation.longitude = 0;
-    }
-    return self;
-}
-
 - (id)initWithParentViewController:(UIViewController *)viewController
 {
     self = [super init];
     if (self) {
         viewController = nil;
         
-        client = [[OrdrClient alloc] initWithLoadingViewController:self];
-        locationManager = [[CLLocationManager alloc] init];
-        [locationManager setDelegate:self];
-        allSuggestions = [[NSMutableDictionary alloc] init];
-        
-        userLocation.latitude = 0;
-        userLocation.longitude = 0;
-    }
-    return self;
-}
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
         client = [[OrdrClient alloc] initWithLoadingViewController:self];
         locationManager = [[CLLocationManager alloc] init];
         [locationManager setDelegate:self];
@@ -98,7 +67,7 @@
 
 - (void)generateUserInterface
 {
-    HomeViewController *hvc = [[HomeViewController alloc] initWithSuggestions:allSuggestions withRestaurantIdentifiers:[self suggestionRestaurantIDs]];
+    SuggestionViewController *hvc = [[SuggestionViewController alloc] initWithSuggestions:allSuggestions withRestaurantIdentifiers:[self suggestionRestaurantIDs]];
     [self presentViewController:hvc animated:YES completion:nil];
 }
 
@@ -146,17 +115,23 @@
 - (void) presentLocationError
 //User didn't allow for location services
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"You must enable Location Services" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"You must enable Location Services, then restart." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
     [alertView show];
 }
 
 - (void) presentAddressAPIError
 //API came across an error.
 {
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Could not find user address, try refreshing." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles: nil];
+    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Message" message:@"Could not find user address, try again." delegate:self cancelButtonTitle:@"Retry" otherButtonTitles: nil];
     [alertView show];
 }
 
+#pragma mark - UIAlertView Protocol
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    [locationManager startUpdatingLocation];
+}
 
 
 @end

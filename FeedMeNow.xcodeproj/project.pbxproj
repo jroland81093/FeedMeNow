@@ -8,8 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		0C42BE466E454C2685258EE8 /* libPods-FeedMeNow.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F80C6B20738C437A94502362 /* libPods-FeedMeNow.a */; };
-		4C36A2B619A8FC3A00DC2F2F /* ErrorViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C36A2B419A8FC3A00DC2F2F /* ErrorViewController.m */; };
-		4C36A2B719A8FC3A00DC2F2F /* ErrorViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C36A2B519A8FC3A00DC2F2F /* ErrorViewController.xib */; };
 		4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */; };
 		4C4C8F87198F41A6003A11E0 /* Bellota-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */; };
 		4C4C8F88198F41A6003A11E0 /* Bellota-Italic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */; };
@@ -44,8 +42,9 @@
 		4C4C8FA5198F41A6003A11E0 /* iphone-calling.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F85198F41A6003A11E0 /* iphone-calling.png */; };
 		4C4C8FA9198F4215003A11E0 /* PresentingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */; };
 		4C4C8FAA198F4215003A11E0 /* PresentingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */; };
-		4C6FD34A19AEC8F000056D5C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6FD34C19AEC8F000056D5C /* HomeViewController.xib */; };
 		4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0761198E9F59005E04FB /* ParsingOperation.m */; };
+		4CFFA66919AEE85F008E979C /* SuggestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CFFA66719AEE85F008E979C /* SuggestionViewController.m */; };
+		4CFFA66A19AEE85F008E979C /* SuggestionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4CFFA66819AEE85F008E979C /* SuggestionViewController.xib */; };
 		CE036E881972F221003251B8 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E871972F221003251B8 /* Address.m */; };
 		CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E8A19734DD6003251B8 /* Restaurant.m */; };
 		CE290860196BB7B3008310CE /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE29085F196BB7B3008310CE /* Foundation.framework */; };
@@ -60,7 +59,6 @@
 		CE29087B196BB7B3008310CE /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE290863196BB7B3008310CE /* UIKit.framework */; };
 		CE290883196BB7B3008310CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE290881196BB7B3008310CE /* InfoPlist.strings */; };
 		CE290885196BB7B3008310CE /* FeedMeNowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE290884196BB7B3008310CE /* FeedMeNowTests.m */; };
-		CE290891196BB878008310CE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29088F196BB878008310CE /* HomeViewController.m */; };
 		CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94D01988AFD900139BCB /* LoadingViewController.m */; };
 		CE9D94D31988AFD900139BCB /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9D94D11988AFD900139BCB /* LoadingViewController.xib */; };
 		CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94DB1988BFB600139BCB /* Suggestion.m */; };
@@ -81,9 +79,6 @@
 
 /* Begin PBXFileReference section */
 		25B7F0EF6E714DA0B53550BE /* Pods-FeedMeNow.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FeedMeNow.xcconfig"; path = "Pods/Pods-FeedMeNow.xcconfig"; sourceTree = "<group>"; };
-		4C36A2B319A8FC3A00DC2F2F /* ErrorViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorViewController.h; sourceTree = "<group>"; };
-		4C36A2B419A8FC3A00DC2F2F /* ErrorViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorViewController.m; sourceTree = "<group>"; };
-		4C36A2B519A8FC3A00DC2F2F /* ErrorViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ErrorViewController.xib; sourceTree = "<group>"; };
 		4C4C8F65198F41A6003A11E0 /* Bellota-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Bold.otf"; sourceTree = "<group>"; };
 		4C4C8F66198F41A6003A11E0 /* Bellota-BoldItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-BoldItalic.otf"; sourceTree = "<group>"; };
 		4C4C8F67198F41A6003A11E0 /* Bellota-Italic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bellota-Italic.otf"; sourceTree = "<group>"; };
@@ -119,9 +114,11 @@
 		4C4C8FA6198F4215003A11E0 /* PresentingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingViewController.h; sourceTree = "<group>"; };
 		4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingViewController.m; sourceTree = "<group>"; };
 		4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentingViewController.xib; sourceTree = "<group>"; };
-		4C6FD34B19AEC8F000056D5C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
 		4CAD0760198E9F59005E04FB /* ParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingOperation.h; sourceTree = "<group>"; };
 		4CAD0761198E9F59005E04FB /* ParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingOperation.m; sourceTree = "<group>"; };
+		4CFFA66619AEE85F008E979C /* SuggestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuggestionViewController.h; sourceTree = "<group>"; };
+		4CFFA66719AEE85F008E979C /* SuggestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = SuggestionViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		4CFFA66819AEE85F008E979C /* SuggestionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuggestionViewController.xib; sourceTree = "<group>"; };
 		CE036E861972F221003251B8 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = FeedMeNow/Address.h; sourceTree = "<group>"; };
 		CE036E871972F221003251B8 /* Address.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Address.m; path = FeedMeNow/Address.m; sourceTree = "<group>"; };
 		CE036E8919734DD6003251B8 /* Restaurant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Restaurant.h; sourceTree = "<group>"; };
@@ -142,10 +139,8 @@
 		CE290880196BB7B3008310CE /* FeedMeNowTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FeedMeNowTests-Info.plist"; sourceTree = "<group>"; };
 		CE290882196BB7B3008310CE /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		CE290884196BB7B3008310CE /* FeedMeNowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedMeNowTests.m; sourceTree = "<group>"; };
-		CE29088E196BB878008310CE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
-		CE29088F196BB878008310CE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		CE9D94CF1988AFD900139BCB /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
-		CE9D94D01988AFD900139BCB /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
+		CE9D94D01988AFD900139BCB /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LoadingViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		CE9D94D11988AFD900139BCB /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
 		CE9D94DA1988BFB600139BCB /* Suggestion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Suggestion.h; sourceTree = "<group>"; };
 		CE9D94DB1988BFB600139BCB /* Suggestion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Suggestion.m; sourceTree = "<group>"; };
@@ -183,16 +178,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4C36A2B819A8FC3F00DC2F2F /* Error */ = {
-			isa = PBXGroup;
-			children = (
-				4C36A2B319A8FC3A00DC2F2F /* ErrorViewController.h */,
-				4C36A2B419A8FC3A00DC2F2F /* ErrorViewController.m */,
-				4C36A2B519A8FC3A00DC2F2F /* ErrorViewController.xib */,
-			);
-			name = Error;
-			sourceTree = "<group>";
-		};
 		4C4C8F62198F41A6003A11E0 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
@@ -267,6 +252,16 @@
 			name = Presenting;
 			sourceTree = "<group>";
 		};
+		4CFFA66B19AEE862008E979C /* Suggestion */ = {
+			isa = PBXGroup;
+			children = (
+				4CFFA66619AEE85F008E979C /* SuggestionViewController.h */,
+				4CFFA66719AEE85F008E979C /* SuggestionViewController.m */,
+				4CFFA66819AEE85F008E979C /* SuggestionViewController.xib */,
+			);
+			name = Suggestion;
+			sourceTree = "<group>";
+		};
 		CE290853196BB7B3008310CE = {
 			isa = PBXGroup;
 			children = (
@@ -310,10 +305,9 @@
 				CE29086F196BB7B3008310CE /* AppDelegate.m */,
 				CE290871196BB7B3008310CE /* Images.xcassets */,
 				CE290866196BB7B3008310CE /* Supporting Files */,
-				4C36A2B819A8FC3F00DC2F2F /* Error */,
 				4C4C8FAB198F421D003A11E0 /* Presenting */,
 				CE9D94D41988B01100139BCB /* Loading */,
-				CE9D94D51988B02100139BCB /* Home  */,
+				4CFFA66B19AEE862008E979C /* Suggestion */,
 			);
 			path = FeedMeNow;
 			sourceTree = "<group>";
@@ -365,16 +359,6 @@
 				CE9D94D11988AFD900139BCB /* LoadingViewController.xib */,
 			);
 			name = Loading;
-			sourceTree = "<group>";
-		};
-		CE9D94D51988B02100139BCB /* Home  */ = {
-			isa = PBXGroup;
-			children = (
-				CE29088E196BB878008310CE /* HomeViewController.h */,
-				CE29088F196BB878008310CE /* HomeViewController.m */,
-				4C6FD34C19AEC8F000056D5C /* HomeViewController.xib */,
-			);
-			name = "Home ";
 			sourceTree = "<group>";
 		};
 		CE9D94DD1988BFB900139BCB /* Auxilary Classes */ = {
@@ -488,6 +472,7 @@
 				4C4C8F92198F41A6003A11E0 /* Cabin-MediumItalic.otf in Resources */,
 				4C4C8FAA198F4215003A11E0 /* PresentingViewController.xib in Resources */,
 				4C4C8F9F198F41A6003A11E0 /* feedmenow-logo.psd in Resources */,
+				4CFFA66A19AEE85F008E979C /* SuggestionViewController.xib in Resources */,
 				4C4C8F8C198F41A6003A11E0 /* SIL Open Font License.txt in Resources */,
 				4C4C8F9C198F41A6003A11E0 /* ribbon.psd in Resources */,
 				4C4C8F91198F41A6003A11E0 /* Cabin-Medium.otf in Resources */,
@@ -506,11 +491,9 @@
 				4C4C8F8F198F41A6003A11E0 /* Cabin-BoldItalic.otf in Resources */,
 				4C4C8F9B198F41A6003A11E0 /* ribbon.png in Resources */,
 				4C4C8FA5198F41A6003A11E0 /* iphone-calling.png in Resources */,
-				4C36A2B719A8FC3A00DC2F2F /* ErrorViewController.xib in Resources */,
 				4C4C8F98198F41A6003A11E0 /* feedme_button.png in Resources */,
 				4C4C8F90198F41A6003A11E0 /* Cabin-Italic.otf in Resources */,
 				4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */,
-				4C6FD34A19AEC8F000056D5C /* HomeViewController.xib in Resources */,
 				4C4C8F95198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf in Resources */,
 				4C4C8F93198F41A6003A11E0 /* Cabin-Regular.otf in Resources */,
 				4C4C8F88198F41A6003A11E0 /* Bellota-Italic.otf in Resources */,
@@ -570,14 +553,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4C36A2B619A8FC3A00DC2F2F /* ErrorViewController.m in Sources */,
 				CE036E881972F221003251B8 /* Address.m in Sources */,
 				CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */,
 				CE290870196BB7B3008310CE /* AppDelegate.m in Sources */,
 				4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */,
 				CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */,
 				CE29086C196BB7B3008310CE /* main.m in Sources */,
-				CE290891196BB878008310CE /* HomeViewController.m in Sources */,
+				4CFFA66919AEE85F008E979C /* SuggestionViewController.m in Sources */,
 				4C4C8FA9198F4215003A11E0 /* PresentingViewController.m in Sources */,
 				CEE8216519719D5500E293E2 /* OrdrClient.m in Sources */,
 				CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */,
@@ -603,14 +585,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4C6FD34C19AEC8F000056D5C /* HomeViewController.xib */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4C6FD34B19AEC8F000056D5C /* en */,
-			);
-			name = HomeViewController.xib;
-			sourceTree = "<group>";
-		};
 		CE290868196BB7B3008310CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -713,6 +687,7 @@
 				INFOPLIST_FILE = "FeedMeNow/FeedMeNow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -730,6 +705,7 @@
 				INFOPLIST_FILE = "FeedMeNow/FeedMeNow-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

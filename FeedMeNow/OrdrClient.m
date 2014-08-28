@@ -10,7 +10,6 @@
 #import "Restaurant.h"
 #import "Suggestion.h"
 #import "ParsingOperation.h"
-#import "ErrorViewController.h"
 
 @implementation OrdrClient
 {

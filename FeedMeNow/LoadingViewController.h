@@ -8,11 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
-#import <FBGlowLabel.h>
 #import <RZSquaresLoading.h>
 
 
-@interface LoadingViewController : UIViewController <CLLocationManagerDelegate>
+@interface LoadingViewController : UIViewController <CLLocationManagerDelegate, UIAlertViewDelegate>
 
 - (id)initWithParentViewController: (UIViewController *)viewController;
 - (void)generateUserInterface;
