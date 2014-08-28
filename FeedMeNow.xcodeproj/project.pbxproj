@@ -14,7 +14,6 @@
 		4C4C8F89198F41A6003A11E0 /* Bellota-Light.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F68198F41A6003A11E0 /* Bellota-Light.otf */; };
 		4C4C8F8A198F41A6003A11E0 /* Bellota-LightItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F69198F41A6003A11E0 /* Bellota-LightItalic.otf */; };
 		4C4C8F8B198F41A6003A11E0 /* Bellota-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6A198F41A6003A11E0 /* Bellota-Regular.otf */; };
-		4C4C8F8C198F41A6003A11E0 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6B198F41A6003A11E0 /* SIL Open Font License.txt */; };
 		4C4C8F8D198F41A6003A11E0 /* button.psd in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6C198F41A6003A11E0 /* button.psd */; };
 		4C4C8F8E198F41A6003A11E0 /* Cabin-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6E198F41A6003A11E0 /* Cabin-Bold.otf */; };
 		4C4C8F8F198F41A6003A11E0 /* Cabin-BoldItalic.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F6F198F41A6003A11E0 /* Cabin-BoldItalic.otf */; };
@@ -473,7 +472,6 @@
 				4C4C8FAA198F4215003A11E0 /* PresentingViewController.xib in Resources */,
 				4C4C8F9F198F41A6003A11E0 /* feedmenow-logo.psd in Resources */,
 				4CFFA66A19AEE85F008E979C /* SuggestionViewController.xib in Resources */,
-				4C4C8F8C198F41A6003A11E0 /* SIL Open Font License.txt in Resources */,
 				4C4C8F9C198F41A6003A11E0 /* ribbon.psd in Resources */,
 				4C4C8F91198F41A6003A11E0 /* Cabin-Medium.otf in Resources */,
 				4C4C8F89198F41A6003A11E0 /* Bellota-Light.otf in Resources */,

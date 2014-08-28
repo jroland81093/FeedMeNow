@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "82C61BD339774E38985FE9BA"
+               BlueprintIdentifier = "534528E65A2A40CD872AC546"
                BuildableName = "libPods-FeedMeNow-RZSquaresLoading.a"
                BlueprintName = "Pods-FeedMeNow-RZSquaresLoading"
                ReferencedContainer = "container:Pods.xcodeproj">
