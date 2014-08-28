@@ -44,6 +44,7 @@
 		4C4C8FA5198F41A6003A11E0 /* iphone-calling.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8F85198F41A6003A11E0 /* iphone-calling.png */; };
 		4C4C8FA9198F4215003A11E0 /* PresentingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */; };
 		4C4C8FAA198F4215003A11E0 /* PresentingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */; };
+		4C6FD34A19AEC8F000056D5C /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6FD34C19AEC8F000056D5C /* HomeViewController.xib */; };
 		4CAD0762198E9F59005E04FB /* ParsingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CAD0761198E9F59005E04FB /* ParsingOperation.m */; };
 		CE036E881972F221003251B8 /* Address.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E871972F221003251B8 /* Address.m */; };
 		CE036E8B19734DD6003251B8 /* Restaurant.m in Sources */ = {isa = PBXBuildFile; fileRef = CE036E8A19734DD6003251B8 /* Restaurant.m */; };
@@ -60,7 +61,6 @@
 		CE290883196BB7B3008310CE /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CE290881196BB7B3008310CE /* InfoPlist.strings */; };
 		CE290885196BB7B3008310CE /* FeedMeNowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE290884196BB7B3008310CE /* FeedMeNowTests.m */; };
 		CE290891196BB878008310CE /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE29088F196BB878008310CE /* HomeViewController.m */; };
-		CE290892196BB878008310CE /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE290890196BB878008310CE /* HomeViewController.xib */; };
 		CE9D94D21988AFD900139BCB /* LoadingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94D01988AFD900139BCB /* LoadingViewController.m */; };
 		CE9D94D31988AFD900139BCB /* LoadingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE9D94D11988AFD900139BCB /* LoadingViewController.xib */; };
 		CE9D94DC1988BFB600139BCB /* Suggestion.m in Sources */ = {isa = PBXBuildFile; fileRef = CE9D94DB1988BFB600139BCB /* Suggestion.m */; };
@@ -119,6 +119,7 @@
 		4C4C8FA6198F4215003A11E0 /* PresentingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentingViewController.h; sourceTree = "<group>"; };
 		4C4C8FA7198F4215003A11E0 /* PresentingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentingViewController.m; sourceTree = "<group>"; };
 		4C4C8FA8198F4215003A11E0 /* PresentingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PresentingViewController.xib; sourceTree = "<group>"; };
+		4C6FD34B19AEC8F000056D5C /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/HomeViewController.xib; sourceTree = "<group>"; };
 		4CAD0760198E9F59005E04FB /* ParsingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParsingOperation.h; sourceTree = "<group>"; };
 		4CAD0761198E9F59005E04FB /* ParsingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParsingOperation.m; sourceTree = "<group>"; };
 		CE036E861972F221003251B8 /* Address.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Address.h; path = FeedMeNow/Address.h; sourceTree = "<group>"; };
@@ -143,7 +144,6 @@
 		CE290884196BB7B3008310CE /* FeedMeNowTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FeedMeNowTests.m; sourceTree = "<group>"; };
 		CE29088E196BB878008310CE /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		CE29088F196BB878008310CE /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
-		CE290890196BB878008310CE /* HomeViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		CE9D94CF1988AFD900139BCB /* LoadingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingViewController.h; sourceTree = "<group>"; };
 		CE9D94D01988AFD900139BCB /* LoadingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingViewController.m; sourceTree = "<group>"; };
 		CE9D94D11988AFD900139BCB /* LoadingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoadingViewController.xib; sourceTree = "<group>"; };
@@ -372,7 +372,7 @@
 			children = (
 				CE29088E196BB878008310CE /* HomeViewController.h */,
 				CE29088F196BB878008310CE /* HomeViewController.m */,
-				CE290890196BB878008310CE /* HomeViewController.xib */,
+				4C6FD34C19AEC8F000056D5C /* HomeViewController.xib */,
 			);
 			name = "Home ";
 			sourceTree = "<group>";
@@ -510,7 +510,7 @@
 				4C4C8F98198F41A6003A11E0 /* feedme_button.png in Resources */,
 				4C4C8F90198F41A6003A11E0 /* Cabin-Italic.otf in Resources */,
 				4C4C8F86198F41A6003A11E0 /* Bellota-Bold.otf in Resources */,
-				CE290892196BB878008310CE /* HomeViewController.xib in Resources */,
+				4C6FD34A19AEC8F000056D5C /* HomeViewController.xib in Resources */,
 				4C4C8F95198F41A6003A11E0 /* Cabin-SemiBoldItalic.otf in Resources */,
 				4C4C8F93198F41A6003A11E0 /* Cabin-Regular.otf in Resources */,
 				4C4C8F88198F41A6003A11E0 /* Bellota-Italic.otf in Resources */,
@@ -603,6 +603,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		4C6FD34C19AEC8F000056D5C /* HomeViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4C6FD34B19AEC8F000056D5C /* en */,
+			);
+			name = HomeViewController.xib;
+			sourceTree = "<group>";
+		};
 		CE290868196BB7B3008310CE /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (

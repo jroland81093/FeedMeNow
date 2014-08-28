@@ -2,22 +2,6 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>UIAppFonts</key>
-	<array>
-		<string>Bellota-Bold.otf</string>
-		<string>Bellota-BoldItalic.otf</string>
-		<string>Bellota-Italic.otf</string>
-		<string>Bellota-Light.otf</string>
-		<string>Bellota-LightItalic.otf</string>
-		<string>Bellota-Regular.otf</string>
-		<string>Cabin-Bold.otf</string>
-		<string>Cabin-BoldItalic.otf</string>
-		<string>Cabin-Italic.otf</string>
-		<string>Cabin-Medium.otf</string>
-		<string>Cabin-Regular.otf</string>
-		<string>Cabin-SemiBold.otf</string>
-		<string>Cabin-SemiBoldItalic.otf</string>
-	</array>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
@@ -40,6 +24,22 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>Bellota-Bold.otf</string>
+		<string>Bellota-BoldItalic.otf</string>
+		<string>Bellota-Italic.otf</string>
+		<string>Bellota-Light.otf</string>
+		<string>Bellota-LightItalic.otf</string>
+		<string>Bellota-Regular.otf</string>
+		<string>Cabin-Bold.otf</string>
+		<string>Cabin-BoldItalic.otf</string>
+		<string>Cabin-Italic.otf</string>
+		<string>Cabin-Medium.otf</string>
+		<string>Cabin-Regular.otf</string>
+		<string>Cabin-SemiBold.otf</string>
+		<string>Cabin-SemiBoldItalic.otf</string>
+	</array>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>
@@ -47,8 +47,6 @@
 	<key>UISupportedInterfaceOrientations</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
-		<string>UIInterfaceOrientationLandscapeLeft</string>
-		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
 </dict>
 </plist>
